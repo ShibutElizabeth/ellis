@@ -5,7 +5,7 @@ export class Trigger extends EventEmitter{
         super();  
     }
 
-    materialTrigger(){
-        this.trigger('materialsReady');
+    skillsTrigger(){
+        this.trigger('skills');
     }
 }

@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import * as CANNON from 'cannon-es';
 import { StoryObject } from './StoryObject.class';
 
-export class Box extends StoryObject{
+export class Ground extends StoryObject{
     constructor(_story, _width, _height, _depth, _x, _y, _z, _material){
        super(_story, new THREE.BoxGeometry(_width, _height, _depth), _material);
        this.size = {
@@ -22,7 +22,6 @@ export class Box extends StoryObject{
     setPhysics(qX, qY, qZ){
         this.physicsMaterial = new CANNON.Material();
         this.body = new CANNON.Body({
-            mass: 4,
             shape: new CANNON.Box(
                 new CANNON.Vec3(
                     this.size.width/2, 
@@ -30,6 +29,7 @@ export class Box extends StoryObject{
                     this.size.depth/2
                 )
             ),
+            type: CANNON.Body.STATIC,
             material: this.physicsMaterial,
             position: new CANNON.Vec3(
                 this.initPosition.x,
@@ -38,7 +38,6 @@ export class Box extends StoryObject{
             )
         });
         this.body.quaternion.setFromEuler(qX, qY, qZ);
-        this.body.linearDamping = 0.5
         this.physics.addBody(this.body);
     }
 }

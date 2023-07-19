@@ -151,10 +151,12 @@ p{
     // background-color: #dd8ec3;
 }
 
-.canvas-container{
+#canvas-container-skills{
     position: absolute;
-    width: 40vw;
-    height: 40vh;
+    width: 100vw;
+    height: 100vh;
+    // right: 10vw;
+    // top: 40vh;
 }
 
 #canvas-skills{

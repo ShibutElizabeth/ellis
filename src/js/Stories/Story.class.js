@@ -5,6 +5,7 @@ import Sizes from '../SceneUtils/Sizes.class';
 import Time from '../SceneUtils/Time.class';
 import Renderer from '../SceneUtils/Renderer.class';
 import PostProcessing from '../SceneUtils/PostProcessing.class';
+import { Trigger } from '../SceneUtils/Trigger.class';
 
 export class Story{
     constructor(_name){
@@ -30,9 +31,11 @@ export class Story{
         this.clock = new THREE.Clock();
         this.camera = new Camera(this);
         this.renderer = new Renderer(this);
+        this.trigger = new Trigger();
 
         this.postProcessing = new PostProcessing(this);
 
+        this.resize();
         // Resize event
         this.sizes.on('resize', () =>
         {
@@ -42,7 +45,7 @@ export class Story{
         // Time tick event
         this.time.on('tick', () =>
         {
-            this.update()
+            this.update();
         });
     }
 

@@ -1,14 +1,66 @@
 import * as THREE from 'three';
+import * as CANNON from 'cannon-es';
 import { Box } from "./Models/Box.class";
+import { Ball } from './Models/Ball.class';
 import { Story } from "./Story.class";
+import { StoryObject } from './Models/StoryObject.class';
+import { Ground } from './Models/Ground.class';
+import { Materials } from './Materials.class';
 
 export class Skills extends Story{
     constructor(){
         super('skills');
+        console.log('skills')
+        // this.renderer.instance.setClearColor(0xf0712c, 0);
+        this.materials = new Materials();
+        this.boxMaterials = this.materials.skillsMaterials;
+        this.boxes = [];
         this.boxMaterial = new THREE.MeshPhysicalMaterial({ color: new THREE.Color("rgb(125, 102, 162)") });
-        this.box = new Box(this, 3, 3, 3, 0, 0, 0, this.boxMaterial);
+        this.groundMaterial = new THREE.MeshPhysicalMaterial({ color: new THREE.Color("rgb(125, 102, 162)"), visible: false });
+        this.setGround();
+        this.setBoxes();
         this.setLights();
+        this.timestep = 1/60;
     }
+
+    setGround(){
+        this.ground = new Ground(this, 20, 0.2, 20, 0, 0, 0, this.groundMaterial);
+        this.ground.setPhysics(0, 0, 0);
+    }
+
+    setBoxes(){
+        this.boxMaterials.forEach((material, i) => {
+            const box = new Box(this, 1, 1, 1, 1.7*Math.sin(Math.PI/i), 6+i*3.1 - 2*Math.sin(Math.PI/i), -1.3*Math.sin(Math.PI/i), material);
+            box.setPhysics(0, 0, 0);
+            this.setContactMaterials(box.physicsMaterial, this.ground.physicsMaterial);
+            this.boxes.push(box);
+            this.setContactMaterials(box.physicsMaterial, box.physicsMaterial);
+        })
+    }
+
+    setContactMaterials(ownMaterial, groundMaterial){
+        const ballLeftRoadContact = new CANNON.ContactMaterial(
+            groundMaterial,
+            ownMaterial,
+            {restitution: 0.7}
+        );
+        this.physics.addContactMaterial(ballLeftRoadContact);
+        this.ready = true;
+    }
+
+    update(){
+        if(this.ready){
+            this.physics.step(this.timestep);
+        this.ground.update();
+        this.boxes.forEach((box) => {
+            box.update();
+        });
+        this.camera.update();
+        this.postProcessing.update();
+        }
+        
+    }
+
 
     setLights(){
         /* directional light */
