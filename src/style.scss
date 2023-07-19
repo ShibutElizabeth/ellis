@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+/*
+font-family: 'Cherry Bomb One', cursive;
+font-family: 'Mali', cursive;
+
+dark: #87657b
+light: #ffc1ea
+bright: #ff00aa
+medium: #dd8ec3
+*/
+
+$pink: #D83F87;
+$dark: #2A1B3D;
+$violet: #48318d;
+$lilac: rgb(125, 102, 162);
+$gray: #A4B3B6;
+$white: #ffffff;
+
+@mixin phone {
+    @media (max-width: 599px) { @content; }
+}
+@mixin tablet-p {
+    @media (max-width: 600px) { @content; }
+}
+@mixin tablet-l{
+    @media (max-width: 900px) { @content; }
+}
+@mixin desktop-l {
+    @media (max-width: 1920px) { @content; }
+}
+@mixin desktop-m {
+    @media (max-width: 1600px) { @content; }
+}
+@mixin desktop-s {
+    @media (max-width: 1420px) { @content; }
+}
+
+
+body, html{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Merriweather Sans', sans-serif;
+    width: 100vw;
+    height: fit-content;
+    background-color: #d4d3c9;
+    color: $white;
+}
+
+main{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+h2{
+    font-size: 120px;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+
+    @include desktop-l{
+        font-size: 100px;
+    }
+    @include desktop-m{
+        font-size: 75px;
+    }
+    @include desktop-s{
+        font-size: 65px;
+    }
+}
+
+h4{
+    font-size: 80px;
+    font-weight: 500;
+    font-style: normal;
+    text-align: left;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    opacity: 0.7;
+
+    @include desktop-l{
+        font-size: 60px;
+    }
+    @include desktop-m{
+        font-size: 40px;
+    }
+    @include desktop-s{
+        font-size: 30px;
+    }
+}
+
+p{
+    font-size: 40px;
+    color: $dark;
+    text-align: left;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    opacity: 0.7;
+    @include desktop-l{
+        font-size: 30px;
+    }
+    @include desktop-m{
+        font-size: 20px;
+    }
+    @include desktop-s{
+        font-size: 15px;
+    }
+}
+
+.section{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &_container{
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        min-width: 70vw;
+        min-height: 45vh;
+    }
+}
+
+.about{
+    position: relative;
+    &_block{
+        margin-top: 10vh;
+        width: 40vw;
+        height: 40vh;
+        background-color: #2A1B3D;
+    }
+}
+
+.skills{
+    position: relative;
+    // background-color: #ffc1ea;
+}
+
+.contact{
+    position: relative;
+    // background-color: #dd8ec3;
+}
+
+.canvas-container{
+    position: absolute;
+    width: 40vw;
+    height: 40vh;
+}
+
+#canvas-skills{
+    width: 100%;
+    height: 100%;
+}
