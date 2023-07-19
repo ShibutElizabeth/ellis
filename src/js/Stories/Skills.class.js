@@ -7,11 +7,12 @@ import { StoryObject } from './Models/StoryObject.class';
 import { Ground } from './Models/Ground.class';
 import { Materials } from './Materials.class';
 
+import RayCaster from '../SceneUtils/RayCaster.class';
+
 export class Skills extends Story{
     constructor(){
         super('skills');
-        console.log('skills')
-        // this.renderer.instance.setClearColor(0xf0712c, 0);
+        this.renderer.instance.setClearColor(0xf0712c, 0);
         this.materials = new Materials();
         this.boxMaterials = this.materials.skillsMaterials;
         this.boxes = [];
@@ -21,6 +22,8 @@ export class Skills extends Story{
         this.setBoxes();
         this.setLights();
         this.timestep = 1/60;
+        this.raycaster = new RayCaster(this);
+        
     }
 
     setGround(){
@@ -30,19 +33,19 @@ export class Skills extends Story{
 
     setBoxes(){
         this.boxMaterials.forEach((material, i) => {
-            const box = new Box(this, 1, 1, 1, 1.7*Math.sin(Math.PI/i), 6+i*3.1 - 2*Math.sin(Math.PI/i), -1.3*Math.sin(Math.PI/i), material);
+            const box = new Box(this, 1, 1, 1, 1.7*Math.sin(Math.PI/(i+1)), 6+i*3.1 - 0.7*Math.sin(Math.PI/(i+1)), -1.3*Math.sin(Math.PI/(i+1)), material);
             box.setPhysics(0, 0, 0);
-            this.setContactMaterials(box.physicsMaterial, this.ground.physicsMaterial);
+            this.setContactMaterials(box.physicsMaterial, this.ground.physicsMaterial, 0.7);
             this.boxes.push(box);
-            this.setContactMaterials(box.physicsMaterial, box.physicsMaterial);
+            this.setContactMaterials(box.physicsMaterial, box.physicsMaterial, 0.3);
         })
     }
 
-    setContactMaterials(ownMaterial, groundMaterial){
+    setContactMaterials(ownMaterial, groundMaterial, value){
         const ballLeftRoadContact = new CANNON.ContactMaterial(
             groundMaterial,
             ownMaterial,
-            {restitution: 0.7}
+            {restitution: value}
         );
         this.physics.addContactMaterial(ballLeftRoadContact);
         this.ready = true;

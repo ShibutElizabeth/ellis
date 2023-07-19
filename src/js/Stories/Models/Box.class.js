@@ -38,7 +38,7 @@ export class Box extends StoryObject{
             )
         });
         this.body.quaternion.setFromEuler(qX, qY, qZ);
-        this.body.linearDamping = 0.5
+        this.body.linearDamping = 0.5;
         this.physics.addBody(this.body);
     }
 }
