@@ -14,10 +14,10 @@ export class StoryObject {
         this.instance = new THREE.Mesh(this.geometry, this.material); 
     }
 
-    setParameters(position){
+    setParameters(position, cast, receive){
         this.instance.position.copy(position);
-        this.instance.castShadow = true;
-        this.instance.receiveShadow = true;
+        this.instance.castShadow = cast;
+        this.instance.receiveShadow = receive;
         this.scene.add(this.instance);
     }
     

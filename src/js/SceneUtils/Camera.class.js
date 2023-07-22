@@ -43,6 +43,9 @@ export default class Camera
         // this.controls.addEventListener('change', ()=>{
         //     console.log(this.controls)
         // })
+        // target: -1.15, 0.6, 0.18
+        // position: 6, 6, 15
+        // cam pos: 9.6, 6.5, 1
     }
 
     

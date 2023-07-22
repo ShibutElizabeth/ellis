@@ -19,9 +19,7 @@ export default class RayCaster
             // Setup
             this.config.touch = this.story.config.touch;
             // this.objectsToTest = this.story.boxes;
-            this.story.boxes.forEach((box) => {
-                this.objectsToTest.push(box.instance);
-            })
+            this.objectsToTest = this.story.objectsToTest;
             this.raycaster = new THREE.Raycaster();
             this.cursorDown = new THREE.Vector2();
             this.cursor = new THREE.Vector2();
@@ -355,21 +353,25 @@ export default class RayCaster
 
             window.addEventListener('pointerdown', (event) =>
             {
+                const c = document.querySelector('#canvas-container-skills');
+                const rect = c.getBoundingClientRect();
                 this.touchedPoints.push(event.pointerId);
 
                 this.cursorXMin = Math.abs((event.clientX / this.sizes.width * 2 - 1)*0.9);
                 this.cursorXMax = Math.abs((event.clientX / this.sizes.width * 2 - 1)*1.1);
 
-                this.cursorYMin = Math.abs((event.clientY / this.sizes.height * 2 - 1)*0.9);
-                this.cursorYMax = Math.abs((event.clientY / this.sizes.height * 2 - 1)*1.1);
+                this.cursorYMin = Math.abs(((event.clientY - rect.top)/ this.sizes.height * 2 - 1)*0.9);
+                this.cursorYMax = Math.abs(((event.clientY - rect.top) / this.sizes.height * 2 - 1)*1.1);
 
             });
 
             // Click listener
             window.addEventListener('pointerup', (event) =>
             {
-                this.cursor.x = event.clientX / this.sizes.width * 2 - 1;
-                this.cursor.y = - (event.clientY / this.sizes.height) * 2 + 1;
+                const c = document.querySelector('#canvas-container-skills');
+                const rect = c.getBoundingClientRect();
+                this.cursor.x = event.clientX/ this.sizes.width * 2 - 1;
+                this.cursor.y = - ((event.clientY - rect.top) / this.sizes.height) * 2 + 1;
 
                 this.absX = Math.abs(this.cursor.x);
                 this.absY = Math.abs(this.cursor.y);
@@ -401,26 +403,48 @@ export default class RayCaster
 
     click(cursor)
     {
-        console.log('click');
         this.raycaster.setFromCamera(cursor, this.camera.instance)
         
         //Object click listener
         this.intersectsObjects = this.raycaster.intersectObjects(this.objectsToTest)
         if(this.intersectsObjects.length)
         {
-            this.selectedModel = this.intersectsObjects[0];
+            this.selectedModel = this.intersectsObjects[0].object;
             // this.getParent(this.selectedModel);
-            console.log(this.selectedModel);
-            // switch(this.clickedModel)
-            // {
-            //     // Menu
-            //     case this.model.tv:
-            //         setTimeout(() => {
-            //             this.room.materials.tvScreenUniforms.isCV.value = true;
-            //         }, 1000);
-            //         this.controller.camControls.toTvScreen(this.clickedModel.position);
-            //         // this.controller.menuControls.projects(this.ramenShop.projectsWhite, 'white')
-            //         break;
+            this.selectedModel.material.color.set( 0xff0000 );
+            // console.log(this.selectedModel);
+            // console.log(this.raycaster)
+            switch(this.selectedModel)
+            {
+                // Menu
+                case this.objectsToTest[0]:
+                    this.story.controller.hide(0);
+                    break;
+                case this.objectsToTest[1]:
+                    this.story.controller.hide(1);
+                    break;
+                case this.objectsToTest[2]:
+                    this.story.controller.hide(2);
+                    break;
+                case this.objectsToTest[3]:
+                    this.story.controller.hide(3);
+                    break;
+                case this.objectsToTest[4]:
+                    this.story.controller.hide(4);
+                    break;
+                case this.objectsToTest[5]:
+                    this.story.controller.hide(5);
+                    break;
+                case this.objectsToTest[6]:
+                    this.story.controller.hide(6);
+                    break;
+                case this.objectsToTest[7]:
+                    this.story.controller.hide(7);
+                    break;
+                case this.objectsToTest[8]:
+                    this.story.controller.hide(8);
+                    break;
+            }
 
             //     case this.model.books[3]:
             //         console.log('book clicked')

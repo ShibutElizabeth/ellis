@@ -16,7 +16,7 @@ export class Box extends StoryObject{
         z: _z
        };
        this.contactMaterials = [];
-       this.setParameters(new THREE.Vector3(_x, _y, _z));
+       this.setParameters(new THREE.Vector3(_x, _y, _z), true, true);
     }
 
     setPhysics(qX, qY, qZ){

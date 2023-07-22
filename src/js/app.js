@@ -1,12 +1,13 @@
-import LocomotiveScroll from "locomotive-scroll";
-import { Skills } from "./Stories/Skills.class";
+
+import { Animations } from "./Animations";
+import { initAnimation, initScroll } from "./LocoScroll";
+
 
 window.addEventListener('load', () => {
     console.log('hello');
 
-    const scroll = new LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]'),
-        smooth: true,
-    })
-    const skills = new Skills();
+    initScroll();
+    // initAnimation();
+    const animations = new Animations();
+    // const skills = new Skills();
 })

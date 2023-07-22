@@ -15,6 +15,8 @@ export class Materials{
             '../../../vue-logo.png',
         ];
         this.skillsMaterials = [];
+        this.mapSourses = ['../../../map.jpeg'];
+        this.map = this.textureLoader.load(this.mapSourses[0]);
         this.setSkillsMaterials();
     }
 

@@ -7,7 +7,6 @@ import Renderer from '../SceneUtils/Renderer.class';
 import PostProcessing from '../SceneUtils/PostProcessing.class';
 import { Trigger } from '../SceneUtils/Trigger.class';
 import RayCaster from '../SceneUtils/RayCaster.class';
-import SkillsController from './Controllers/SkillsController.class';
 
 export class Story{
     constructor(_name){
@@ -34,8 +33,6 @@ export class Story{
         this.camera = new Camera(this);
         this.renderer = new Renderer(this);
         this.trigger = new Trigger();
-        this.controller = new SkillsController(this);
-        // this.raycaster = new RayCaster(this);
 
         this.postProcessing = new PostProcessing(this);
 
