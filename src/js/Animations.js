@@ -9,7 +9,8 @@ export class Animations{
     constructor(){
         this.names = document.querySelectorAll('.js-name');
         this.heroMask = document.querySelector('.hero_mask');
-        this.mouse = document.querySelector('.mouse');
+        this.mouseScroll = document.querySelector('.js-mouse-scroll');
+        this.mouseClick = document.querySelector('.js-mouse-click');
         this.maskMouseMove = () => {};
         this.initFirstTimeline();
         this.initMaskTransition();
@@ -38,7 +39,7 @@ export class Animations{
             transformOrigin: 'right bottom',
             onComplete: () => this.initSkills(),
         })
-        .fromTo(this.mouse, {
+        .fromTo(this.mouseScroll, {
             opacity: 0,
         }, {
             opacity: 1,
@@ -49,7 +50,7 @@ export class Animations{
     }
 
     initMouseScrollAnim(){
-        const paths = this.mouse.querySelectorAll('path');
+        const paths = this.mouseScroll.querySelectorAll('path');
         gsap.fromTo([paths[1], paths[2]], {
             y: 0,
         }, {
@@ -59,15 +60,27 @@ export class Animations{
             repeat: -1,
         })
     }
-    
-    hideMouse(){
+
+    initMouseClickAnim(){
+        const paths = this.mouseClick.querySelectorAll('path');
+        // gsap.fromTo([paths[1], paths[2]], {
+        //     y: 0,
+        // }, {
+        //     y: 4,
+        //     duration: 0.6,
+        //     yoyo: true,
+        //     repeat: -1,
+        // })
+    }
+
+    hideMouse(element){
         const tl = gsap.timeline();
-        tl.fromTo(this.mouse, {
+        tl.fromTo(element, {
             opacity: 1,
         }, {
             opacity: 0,
             duration: 0.2,
-        })
+        });
     }
 
     removeMaskHover() {
@@ -87,15 +100,40 @@ export class Animations{
             top: '80vh',
             width: '90vw',
             height: '90vh',
-            onStart: () => this.hideMouse(),
             scrollTrigger: {
                 trigger: '#skills-container',
                 start: 'top 90%',
                 end: 'top 30%',
                 scrub: 1
             }
-        });
+        })
+        .to(this.mouseScroll, {
+            opacity: 0,
+            // delay: 1.5,
+            duration: 0.1,
+            scrollTrigger: {
+                trigger: '#skills-container',
+                start: 'top 90%',
+                end: 'top 85%',
+                scrub: 1
+            }
+        })
+        .fromTo(this.mouseClick, {
+            opacity: 0,
+        }, {
+            opacity: 1,
+            // delay: 1.5,
+            duration: 0.8,
+            onComplete: () => this.initMouseClickAnim(),
+            scrollTrigger: {
+                trigger: '#skills-container',
+                start: 'top 40%',
+                end: 'top 35%',
+                scrub: 1
+            }
+        })
     }
+
 
     initMaskHover(){
         const self = this.heroMask;

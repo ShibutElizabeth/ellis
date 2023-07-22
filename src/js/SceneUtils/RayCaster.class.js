@@ -403,15 +403,19 @@ export default class RayCaster
 
     click(cursor)
     {
-        this.raycaster.setFromCamera(cursor, this.camera.instance)
-        
+        this.raycaster.setFromCamera(cursor, this.camera.instance);
+
+        this.objectsToTest.forEach((mesh) => {
+            mesh.material.color.set(0xffffff);
+        })
         //Object click listener
-        this.intersectsObjects = this.raycaster.intersectObjects(this.objectsToTest)
+        this.intersectsObjects = this.raycaster.intersectObjects(this.objectsToTest);
         if(this.intersectsObjects.length)
         {
             this.selectedModel = this.intersectsObjects[0].object;
+            // console.log(this.selectedModel)
             // this.getParent(this.selectedModel);
-            this.selectedModel.material.color.set( 0xff0000 );
+            this.selectedModel.material.color.set(0xc8e3bf);
             // console.log(this.selectedModel);
             // console.log(this.raycaster)
             switch(this.selectedModel)
