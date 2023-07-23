@@ -283,16 +283,34 @@ p{
                 h4{
                     color: #141414;
                     font-weight: 700;
-                    font-size: 30px;
+                    font-size: 60px;
                     margin: 0;
                     line-height: 1.1;
-                } 
+                    @include desktop-l{
+                        font-size: 50px;
+                    }
+                    @include desktop-m{
+                        font-size: 40px;
+                    }
+                    @include desktop-s{
+                        font-size: 30px;
+                    }
+                }
             }
 
             p{
                 color: #141414;
                 font-weight: 300;
-                font-size: 15px;
+                font-size: 28px;
+                @include desktop-l{
+                    font-size: 22px;
+                }
+                @include desktop-m{
+                    font-size: 18px;
+                }
+                @include desktop-s{
+                    font-size: 15px;
+                }
             }
         }
     }
@@ -303,7 +321,7 @@ p{
         height: 65vh;
         position: absolute;
         top: 25vh;
-        right: 10vw;
+        left: 25vw;
         z-index: 0;
     }
 
@@ -337,14 +355,99 @@ p{
 
 }
 
-.about{
+.projects{
     position: relative;
-    height: 200vh;
-    &_block{
-        margin-top: 10vh;
-        width: 40vw;
-        height: 40vh;
-        background-color: #2A1B3D;
+    height: 100vh;
+    
+    &__container{
+        position: relative;
+        width: 90vw;
+        height: fit-content;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        margin-left: 5vw;
+
+        .project{
+            position: relative;
+            width: 70vw;
+            height: 23vh;
+            padding: 0 10vw;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            .line{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background-color: #ffffff;
+                transform: scaleX(0);
+                transform-origin: left center;
+            }
+
+            &_name{
+                font-size: 50px;
+                color: #ffffff;
+                font-weight: 300;
+                min-width: 40vw;
+                opacity: 0;
+            }
+
+            &_stack{
+                font-size: 50px;
+                color: #ffffff;
+                font-weight: 300;
+            }
+        }
+    }
+
+    .project-selected{
+        background-color: #dedede;
+        width: 25vw;
+        height: 25vw;
+        position: absolute;
+        top: 29vh;
+        left: 14vw;
+        z-index: 2;
+        mix-blend-mode: darken;
+    }
+
+    .project-image{
+        background-color: transparent;
+        width: 25vw;
+        height: 19vw;
+        position: absolute;
+        top: 37vh;
+        left: 14vw;
+        z-index: 3;
+        overflow: hidden;
+
+        img{
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+
+    &_name{
+        position: absolute;
+        top: 45vh;
+        left: 50vw;
+        margin: 0;
+        transform: scaleX(1.3) translate(-50%, -50%);
+        z-index: 0;
+
+        h1{
+            color: #141414;
+            font-weight: 700;
+            font-size: 21.296vh;
+            margin: 0;
+            line-height: 0.8;
+        }
     }
 }
 

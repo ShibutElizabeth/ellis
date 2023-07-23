@@ -46,7 +46,7 @@ export class Animations{
             delay: 1.5,
             duration: 0.8,
             onComplete: () => this.initMouseScrollAnim(),
-        })
+        });
     }
 
     initMouseScrollAnim(){
@@ -59,18 +59,6 @@ export class Animations{
             yoyo: true,
             repeat: -1,
         })
-    }
-
-    initMouseClickAnim(){
-        const paths = this.mouseClick.querySelectorAll('path');
-        // gsap.fromTo([paths[1], paths[2]], {
-        //     y: 0,
-        // }, {
-        //     y: 4,
-        //     duration: 0.6,
-        //     yoyo: true,
-        //     repeat: -1,
-        // })
     }
 
     hideMouse(element){
@@ -91,12 +79,12 @@ export class Animations{
         const sceneTL = gsap.timeline();
         sceneTL
         .fromTo(this.heroMask, {
-            right: '10vw',
+            left: '25vw',
             top: '25vh',
             width: '65vw',
             height: '65vh',
         }, {
-            right: '5vw',
+            left: '5vw',
             top: '80vh',
             width: '90vw',
             height: '90vh',
@@ -109,7 +97,6 @@ export class Animations{
         })
         .to(this.mouseScroll, {
             opacity: 0,
-            // delay: 1.5,
             duration: 0.1,
             scrollTrigger: {
                 trigger: '#skills-container',
@@ -118,13 +105,9 @@ export class Animations{
                 scrub: 1
             }
         })
-        .fromTo(this.mouseClick, {
-            opacity: 0,
-        }, {
+        .to(this.mouseClick, {
             opacity: 1,
-            // delay: 1.5,
             duration: 0.8,
-            onComplete: () => this.initMouseClickAnim(),
             scrollTrigger: {
                 trigger: '#skills-container',
                 start: 'top 40%',
@@ -132,8 +115,17 @@ export class Animations{
                 scrub: 1
             }
         })
+        .to(this.mouseClick, {
+            opacity: 0,
+            duration: 0.1,
+            scrollTrigger: {
+                trigger: '#skills-container',
+                start: 'top 5%',
+                end: 'top top',
+                scrub: 1
+            }
+        })
     }
-
 
     initMaskHover(){
         const self = this.heroMask;
