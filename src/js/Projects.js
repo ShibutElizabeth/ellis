@@ -70,6 +70,7 @@ export class Projects{
         }
 
         const onHover = (x, y) => {
+            console.log('on hover')
             gsap.to([this.selected, this.image], {
                 x: x,
                 y: y,
@@ -93,7 +94,9 @@ export class Projects{
             mouse.x = e.clientX;
             mouse.y = e.clientY;
 
+            console.log(mouse);
             if(hover){
+                console.log('hover')
                 onHover();
             }
         }
