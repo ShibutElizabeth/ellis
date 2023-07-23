@@ -358,7 +358,7 @@ p{
 .about{
     position: relative;
     width: 100vw;
-    height: 160vh;
+    height: 170vh;
     background-color: transparent;
     color: rgb(68, 69, 69);
     overflow-x: hidden;
@@ -440,6 +440,17 @@ p{
 
         }
     }
+
+    &_text{
+        color: #fff;
+        opacity: 1;
+        margin: 25vh auto 5vh;
+        font-size: 18px;
+        font-weight: 300;
+        position: relative;
+        width: 30vw;
+        font-style: italic;
+    }
 }
 
 .move{
@@ -475,10 +486,44 @@ p{
     }
 }
 
+
 .projects{
     position: relative;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
+    &__gallery{
+        background-color: #24364c;
+        color: white;
+        width: 90vw;
+        height: 90vh;
+        border-radius: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .grid{
+            display: flex;
+            flex-direction: column;
+            width: 60vw;
+            height: fit-content;
+
+            &_row{
+                display: flex;
+                flex-direction: row;
+                gap: 0;
+                justify-content: center;
+
+                .card{
+                    width: 30vw;
+                    height: 30vh;
+                    background-color: #dedede;
+                }
+            }
+        }
+    }
     &__container{
         position: relative;
         width: 90vw;
