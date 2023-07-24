@@ -497,7 +497,7 @@ p{
     &__gallery{
         background-color: #24364c;
         color: white;
-        width: 90vw;
+        width: 32vw;
         height: 90vh;
         border-radius: 25px;
         display: flex;
@@ -505,22 +505,38 @@ p{
         align-items: center;
 
         .grid{
-            display: flex;
-            flex-direction: column;
-            width: 60vw;
-            height: fit-content;
+            position: relative;
+            width: 92vw;
+            height: 70vh;
 
-            &_row{
-                display: flex;
-                flex-direction: row;
-                gap: 0;
-                justify-content: center;
+            .card{
+                background-color: #dedede;
+                width: 30vw;
+                height: 30vh;
+                position: absolute;
+                top: 5vh;
+                left: 0;
+                transform-style: preserve-3d;
 
-                .card{
-                    width: 30vw;
-                    height: 30vh;
-                    background-color: #dedede;
+                img{
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    filter: grayscale(1);
                 }
+
+                // &:nth-child(1){
+                //     transform: rotateY(64deg) rotateZ(-5deg);
+                // }
+                // &:nth-child(2){
+                //     transform: rotateY(0) rotateZ(0);
+                //     top: 8vh;
+                //     left: 32vw;
+                // }
+                // &:nth-child(3){
+                //     transform: rotateY(64deg) rotateZ(5deg);
+                //     left: 58vw;
+                // }
             }
         }
     }
