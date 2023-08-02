@@ -1,8 +1,5 @@
 import { gsap } from "gsap";
 import { ScrollTrigger, ScrollToPlugin } from "gsap/all";
-import { Skills } from "./Stories/Skills.class";
-import debounce from "./lib/debounce";
-import { Portfolio } from "./Stories/Portfolio.class";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
@@ -15,24 +12,41 @@ export class Projects{
             '../../sloyd.png'
         ];
         this.cards = document.querySelectorAll('.js-project');
+        this.buttons = document.querySelectorAll('.js-project-btn');
         // this.portfolio = new Portfolio();
         this.initProjectsTimeline();
+        this.initProjectsLinks();
     }
 
     initProjectsTimeline(){
         const tl = gsap.timeline();
         this.cards.forEach((card, i) => {
-            tl.fromTo(card, {
-                x: 50 + Math.sin(Math.PI*i) *25,
-            }, {
-                x: 0,
+            tl.to(card, {
+                transform: 'translateX(0)',
                 scrollTrigger: {
                     trigger: card,
-                    start: 'top 80%',
+                    start: 'top 70%',
                     // end: 'top 75%',
                     scrub: 1,
                 }
             })
         })
     } 
+
+    initProjectsLinks(){
+        const links = [
+            'https://moralia.ca/',
+            'https://www.younergy.com/',
+            'https://wlitz.com/',
+            'https://snobarchitects.com/',
+            'https://app.sloyd.ai/'
+        ]
+        const onBtnClick = (e, i) => {
+            e.preventDefault();
+            window.open(links[i], "_blank");
+        }
+        this.buttons.forEach((btn, i) => {
+            btn.addEventListener('click', (e) => onBtnClick(e, i))
+        })
+    }
 }
