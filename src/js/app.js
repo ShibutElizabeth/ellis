@@ -12,6 +12,6 @@ window.addEventListener('load', () => {
     // initAnimation();
     const animations = new Animations();
     const about = new About();
-    // const projects = new Projects();
+    const projects = new Projects();
     // const skills = new Skills();
 })

@@ -2,6 +2,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger, ScrollToPlugin } from "gsap/all";
 import { Skills } from "./Stories/Skills.class";
 import debounce from "./lib/debounce";
+import { Portfolio } from "./Stories/Portfolio.class";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
@@ -13,29 +14,25 @@ export class Projects{
             '../../wlitz.png',
             '../../sloyd.png'
         ];
+        this.cards = document.querySelectorAll('.js-project');
+        // this.portfolio = new Portfolio();
         this.initProjectsTimeline();
     }
 
     initProjectsTimeline(){
-        var cards = gsap.utils.toArray(".card"),
-        radius = 250;
-
-        gsap.set(".grid", {
-            perspective: 2000,
-            transformStyle: "preserve-3d"
-        });
-
-        cards.forEach(function(element, index) {
-            gsap.set(element, {
-                rotationY: index * 360 / cards.length,
-                transformOrigin: "50% 50% " + -radius
-            });
-            gsap.to(element, {
-                duration: 20, 
-                rotationY: "-=360",
-                repeat: -1, 
-                ease: "none"           
-            });
-        });
+        const tl = gsap.timeline();
+        this.cards.forEach((card, i) => {
+            tl.fromTo(card, {
+                x: 50 + Math.sin(Math.PI*i) *25,
+            }, {
+                x: 0,
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 80%',
+                    // end: 'top 75%',
+                    scrub: 1,
+                }
+            })
+        })
     } 
 }
