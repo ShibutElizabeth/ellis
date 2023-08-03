@@ -11,7 +11,7 @@ export class Materials{
             '../../../typescript-logo.png',
             '../../../react-logo.png',
             '../../../css-logo.png',
-            '../../../node-logo.png',
+            '../../../smile.jpeg',
             '../../../git-logo.png',
             '../../../js-logo.png',
             '../../../three-logo.png',

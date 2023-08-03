@@ -10,7 +10,7 @@ import {
 } from 'cannon-es';
 import { StoryObject } from './StoryObject.class';
 
-export class Box extends StoryObject{
+export class SkillBox extends StoryObject{
     constructor(_story, _width, _height, _depth, _x, _y, _z, _material){
        super(_story, new BoxGeometry(_width, _height, _depth), _material);
        this.size = {

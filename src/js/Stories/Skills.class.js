@@ -6,7 +6,7 @@ import {
     Color
 } from 'three';
 import { ContactMaterial } from 'cannon-es';
-import { Box } from "./Models/Box.class";
+import { SkillBox } from "./Models/SkillBox.class";
 import { Story } from "./Story.class";
 import { Ground } from './Models/Ground.class';
 import { Materials } from './Materials.class';
@@ -39,7 +39,7 @@ export class Skills extends Story{
 
     setBoxes(){
         this.boxMaterials.forEach((material, i) => {
-            const box = new Box(this, 1, 1, 1, 1.7*Math.sin(Math.PI/(i+1)), 6+i*3.1 - 0.7*Math.sin(Math.PI/(i+1)), -1.3*Math.sin(Math.PI/(i+1)), material);
+            const box = new SkillBox(this, 1, 1, 1, 1.7*Math.sin(Math.PI/(i+1)), 6+i*3.1 - 0.7*Math.sin(Math.PI/(i+1)), -1.3*Math.sin(Math.PI/(i+1)), material);
             box.setPhysics(0, 0, 0);
             this.setContactMaterials(box.physicsMaterial, this.ground.physicsMaterial, 0.7);
             this.boxes.push(box);

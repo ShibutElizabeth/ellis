@@ -534,6 +534,23 @@ p{
                     @include desktop-s{
                         font-size: 11px;
                     }
+
+                    a{
+                        font-size: 16px;
+                        color: $white;
+                        font-weight: 400;
+                        font-style: italic;
+                        text-decoration: none;
+                        @include desktop-l{
+                            font-size: 14px;
+                        }
+                        @include desktop-m{
+                            font-size: 12px;
+                        }
+                        @include desktop-s{
+                            font-size: 11px;
+                        }
+                    }
                 }
             }
 
