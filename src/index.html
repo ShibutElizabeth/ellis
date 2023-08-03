@@ -3,9 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Elizabeth Shibut</title>
-        <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> -->
         <link rel="stylesheet" href="./locomotive-scroll.css">
         <link rel="stylesheet" href="./style.scss">
     </head>
@@ -19,6 +16,11 @@
                     <div class="hero__container">
                         <div class="name-wrapper hero_header js-name-wrapper"><h1 class="name js-name">Elizabeth</h1></div>
                         <div class="name-wrapper hero_header js-name-wrapper"><h1 class="name js-name">Shibut</h1></div>
+                        <svg class="mouse js-mouse-scroll" width="800" height="800" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 15C5 16.8565 5.73754 18.6371 7.05029 19.9498C8.36305 21.2626 10.1435 21.9999 12 21.9999C13.8565 21.9999 15.637 21.2626 16.9498 19.9498C18.2625 18.6371 19 16.8565 19 15V9C19 7.14348 18.2625 5.36305 16.9498 4.05029C15.637 2.73754 13.8565 2 12 2C10.1435 2 8.36305 2.73754 7.05029 4.05029C5.73754 5.36305 5 7.14348 5 9V15Z" stroke="#141414" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 6V14" stroke="#141414" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15 11L12 14L9 11" stroke="#141414" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
                     <div class="hero_mask"></div>
                     <div id="skills-container" class="hero__container">
@@ -34,6 +36,11 @@
                                 Necessitatibus sunt, earum nemo veritatis blanditiis fugiat vel, labore cumque mollitia impedit quam accusamus cupiditate nisi, perferendis architecto ut sit quis culpa!
                             </p>
                         </div>
+                        <svg class="mouse js-mouse-click" width="800" height="800" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 9C5 5.13401 8.13401 2 12 2C15.866 2 19 5.13401 19 9V15C19 18.866 15.866 22 12 22C8.13401 22 5 18.866 5 15V9Z" stroke="#141414" stroke-width="1"/>
+                            <path d="M12 5V8" stroke="#141414" stroke-width="1" stroke-linecap="round"/>
+                            
+                        </svg>
                     </div>
                 </div>
                 <div class="section about" data-scroll-section>
@@ -79,9 +86,6 @@
                     <div class="about_text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus quos saepe dolorum adipisci accusantium veniam explicabo. Molestias voluptatibus, possimus et facilis quas officia illum nesciunt sed reiciendis dolores eius repellat.</div>
                 </div>
                 <div class="section projects" data-scroll-section>
-                    <div id="canvas-container-portfolio" class="canvas-container">
-                        <canvas id="canvas-portfolio"></canvas>
-                    </div>
                     <div class="projects__gallery">
                         <div class="projects__gallery_card js-project">
                             <div class="box">
@@ -107,7 +111,7 @@
                                     <div class="box__header_button js-project-btn">Visit</div>
                                 </div>
                                 <div class="box__name">Younergy</div>
-                                <div class="box__description">Stack: Parcel.js, Three.js, GSAP, GLSL
+                                <div class="box__description"><b>Stack</b>: Parcel.js, Three.js, GSAP, GLSL
                                     <br>I was developing background sphere  animation. My contribution includes
                                     adding sphere with a shader material using glsl and 3d noise,
                                     mouse interactions,
@@ -125,7 +129,7 @@
                                     <div class="box__header_button js-project-btn">Visit</div>
                                 </div>
                                 <div class="box__name">Wlitz</div>
-                                <div class="box__description">Stack: gulp, GSAP, HTML, SCSS
+                                <div class="box__description"><b>Stack</b>: gulp, GSAP, HTML, SCSS
                                     <br>I worked on all pages layouts from Figma and most of animations, such as
                                     preloader animation,
                                     burger and footer,
@@ -148,7 +152,7 @@
                                     <div class="box__header_button js-project-btn">Visit</div>
                                 </div>
                                 <div class="box__name">Snob</div>
-                                <div class="box__description">Stack: Vue.js, GSAP
+                                <div class="box__description"><b>Stack</b>: Vue.js, GSAP
                                     <br>I created most of animations: lines, texts, images appearing using GSAP and ScrollTrigger,
                                     click, hover events,
                                     SVG drawing,
@@ -163,8 +167,8 @@
                                     <div class="box__header_button js-project-btn">Visit</div>
                                 </div>
                                 <div class="box__name">Sloyd WebApp</div>
-                                <div class="box__description">Stack: React.ts, GSAP, CSS (styled components), CosmosDB, Postman, Auth0, Paddle
-                                    <br>Contribution: most of layouts from Figma, database maintenance, APIs
+                                <div class="box__description"><b>Stack</b>: React.ts, GSAP, CSS (styled components), CosmosDB, Postman, Auth0, Paddle
+                                    <br><b>Contribution</b>: most of layouts from Figma, database maintenance, APIs
                                     texturing layouts and  functionality (connected backend base to frontend)
                                     subscription layouts and functionality (creating DB layers, connecting Paddle API and Auth0 API, architecture tasks)
                                     Side Menus, headers, modals layouts and  functionality and etc.
@@ -183,16 +187,6 @@
                     </div>
                 </div>
             </div>
-            <svg class="mouse js-mouse-scroll" width="800" height="800" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 15C5 16.8565 5.73754 18.6371 7.05029 19.9498C8.36305 21.2626 10.1435 21.9999 12 21.9999C13.8565 21.9999 15.637 21.2626 16.9498 19.9498C18.2625 18.6371 19 16.8565 19 15V9C19 7.14348 18.2625 5.36305 16.9498 4.05029C15.637 2.73754 13.8565 2 12 2C10.1435 2 8.36305 2.73754 7.05029 4.05029C5.73754 5.36305 5 7.14348 5 9V15Z" stroke="#141414" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M12 6V14" stroke="#141414" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M15 11L12 14L9 11" stroke="#141414" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <svg class="mouse js-mouse-click" width="800" height="800" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 9C5 5.13401 8.13401 2 12 2C15.866 2 19 5.13401 19 9V15C19 18.866 15.866 22 12 22C8.13401 22 5 18.866 5 15V9Z" stroke="#141414" stroke-width="1"/>
-                <path d="M12 5V8" stroke="#141414" stroke-width="1" stroke-linecap="round"/>
-                
-            </svg>
         </main>
         <script type="module" src="../src/js/app.js"></script>
 	</body>

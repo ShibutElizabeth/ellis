@@ -10,42 +10,33 @@ export default class Camera
         this.scene = this.story.scene;
         this.canvas = this.story.canvas;
         this.config = this.story.config;
-
+        this.orthographic = this.story.name === 'contact';
         this.setInstance();
-        this.setControls();
+        if(!this.orthographic) this.setControls();
     }
 
     setInstance()
     {
-        this.instance = new THREE.PerspectiveCamera(45, this.sizes.width / this.sizes.height, 0.4, 1000);
-        this.instance.position.x = 6;
-        this.instance.position.y = 6;
-        this.instance.position.z = 15;
-        this.instance.lookAt(-5, 1, 1);
+        if(this.orthographic){
+            this.instance = new THREE.OrthographicCamera(-10, 10, 10,  -10, - 10, 10);   
+        } else{
+            this.instance = new THREE.PerspectiveCamera(45, this.sizes.width / this.sizes.height, 0.4, 1000);
+            this.instance.position.x = 6;
+            this.instance.position.y = 6;
+            this.instance.position.z = 15;
+            this.instance.lookAt(-5, 1, 1);
+        }
         this.scene.add(this.instance);
     }
 
     
     setControls()
     {
-        // console.log('controls')
         this.controls = new OrbitControls(this.instance, this.canvas);
         this.controls.target.set(-5, 1, 1);
         this.controls.enableRotate = false;
         this.controls.enablePan = false;
-        // this.controls.enableDamping = true;
-        // this.controls.enablePan = false;
-        // this.controls.rotateSpeed = 1.2;
-        // this.controls.zoomSpeed = 0.8;
-        // this.controls.target.z = -1;
-        // this.controls.enableRotate = false;
         this.controls.enableZoom = false;
-        // this.controls.addEventListener('change', ()=>{
-        //     console.log(this.controls)
-        // })
-        // target: -1.15, 0.6, 0.18
-        // position: 6, 6, 15
-        // cam pos: 9.6, 6.5, 1
     }
 
     
@@ -63,7 +54,9 @@ export default class Camera
 
     update()
     {
-        this.controls.update();
+        if(this.controls){
+            this.controls.update();
+        }
     }
 }
 

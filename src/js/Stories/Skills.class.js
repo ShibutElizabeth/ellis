@@ -25,8 +25,8 @@ export class Skills extends Story{
         this.setLights();
         this.timestep = 1/60;
         this.controller = new SkillsController(this);
-        
         this.raycaster = new RayCaster(this);
+        console.log(this);
     }
 
     setGround(){

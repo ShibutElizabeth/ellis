@@ -1,26 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-/*font-family: 'Cherry Bomb One', cursive;
-font-family: 'Mali', cursive;
-
-dark: #87657b
-light: #ffc1ea
-bright: #ff00aa
-medium: #dd8ec3
-#d4d3c9
-#393438
-#141414 
-
-font-family: 'Great Vibes', cursive;
-font-family: 'Playfair Display', serif;
-font-family: 'Xanh Mono', monospace;
-*/
-
-$pink: #D83F87;
-$dark: #2A1B3D;
-$violet: #48318d;
-$lilac: rgb(125, 102, 162);
-$gray: #A4B3B6;
+$light: #dedede;
+$medium: rgb(68, 69, 69);
+$dark: #141414;
 $white: #ffffff;
 
 
@@ -51,7 +33,7 @@ body, html{
     font-family: 'Roboto', sans-serif;
     width: 100vw;
     height: fit-content;
-    background-color: #141414;
+    background-color: $dark;
     color: $white;
     
 }
@@ -121,46 +103,6 @@ p{
     }
 }
 
-.light{
-    background-image: 
-        linear-gradient(to bottom right, #833ab402 50%, #ffffff69 100%),
-        linear-gradient(to top right, #ffffff69 0, #ffffff00 50%);
-    background-position: 0, 100%;
-    background-repeat: no-repeat;
-    background-size: 50% 100%;
-    border-radius: 34% 29% 133% 31%;
-    width: 42vw;
-    height: 106vh;
-    position: absolute;
-    top: -2vh;
-    right: -10vw;
-    transform: rotate(65deg)rotateY(42deg);
-    z-index: -3;
-}
-
-.light-circle{
-    background: radial-gradient(circle, #ffffff96 9%, #ffffff00 65%);
-    position: absolute;
-    width: 52vw;
-    height: 39vw;
-    top: 34vh;
-    right: 7vw;
-    z-index: -1;
-    transform: rotateX(59deg);
-}
-
-.mask{
-    z-index: -2;
-    background: linear-gradient(90deg, #393438 20%, #ffffff8f 100%);
-    width: 43vw;
-    height: 40vw;
-    position: absolute;
-    top: 33vh;
-    right: 12vw;
-    transform: rotateX(59deg);
-    border-radius: 50%;
-}
-
 .section{
     position: relative;
     width: 100vw;
@@ -207,11 +149,12 @@ p{
 .mouse{
     width: 5vw;
     height: auto;
-    position: fixed;
+    position: absolute;
     bottom: 12vh;
     left: 50vw;
     transform: translateX(-50%);
     opacity: 0;
+    z-index: 10;
 }
 
 .hero{
@@ -222,7 +165,7 @@ p{
         position: absolute;
         top: 58vh;
         right: 10vw;
-        color:#141414;
+        color: $dark;
         font-size: 50px;
         font-weight: 100;
         opacity: 0;
@@ -234,7 +177,6 @@ p{
         height: 100vh;
         display: flex;
         flex-direction: column;
-        // align-items: center;
 
         .hero_header{
             background-color: transparent;
@@ -264,13 +206,13 @@ p{
             margin-left: 15vh;
             width: 23vw;
             height: fit-content;
-            color: #141414;
+            color: $dark;
             opacity: 0;
 
             .line{
                 width: 100%;
                 height: 1px;
-                background-color: #141414;
+                background-color: $dark;
                 margin: 1.5vh 0;
                 transform: scaleX(0);
                 transform-origin: left center;
@@ -282,7 +224,7 @@ p{
                 mix-blend-mode: normal;
 
                 h4{
-                    color: #141414;
+                    color: $dark;
                     font-weight: 700;
                     font-size: 60px;
                     margin: 0;
@@ -300,7 +242,7 @@ p{
             }
 
             p{
-                color: #141414;
+                color: $dark;
                 font-weight: 300;
                 font-size: 28px;
                 @include desktop-l{
@@ -317,7 +259,7 @@ p{
     }
 
     &_mask{
-        background-color: #dedede;
+        background-color: $light;
         width: 65vw;
         height: 65vh;
         position: absolute;
@@ -361,19 +303,7 @@ p{
     width: 100vw;
     height: 170vh;
     background-color: transparent;
-    color: rgb(68, 69, 69);
     overflow-x: hidden;
-
-    &_header{
-        position: absolute;
-        top: 0;
-        left: 0;
-        color:rgb(68, 69, 69);
-        font-size: 260px;
-        font-weight: 400;
-        white-space: nowrap;
-        line-height: 0.8;
-    }
 
     &_photo{
         position: absolute;
@@ -421,15 +351,15 @@ p{
                     height: auto;
     
                     path{
-                        stroke: #ffffff;
-                        fill: #ffffff;
+                        stroke: $white;
+                        fill: $white;
                         stroke-width: 3px;
                     }
                 }
             }
 
             &_description{
-                color: #ffffff;
+                color: $white;
                 font-weight: 300;
                 font-size: 18px;
                 opacity: 1;
@@ -443,7 +373,7 @@ p{
     }
 
     &_text{
-        color: #fff;
+        color: $white;
         opacity: 1;
         margin: 25vh auto 5vh;
         font-size: 18px;
@@ -466,7 +396,7 @@ p{
         position: relative;
         font-size: 200px;
         font-style: bold;
-        color: white;
+        color: $white;
         text-transform: uppercase;
         white-space: nowrap;
         margin: 0;
@@ -502,11 +432,11 @@ p{
             position: absolute;
             width: 26vw;
             height: 26vw;
-            background-color: rgb(68, 69, 69);
+            background-color: $medium;
             opacity: 0.7;
             border-radius: 15px;
             border-style: dashed;
-            border-color: white;
+            border-color: $white;
             top: auto;
             left: auto;
             bottom: auto;
@@ -557,45 +487,81 @@ p{
                     align-items: center;
 
                     &_company{
-                        font-size: 20px;
-                        color: white;
+                        font-size: 27px;
+                        color: $white;
                         font-weight: 300;
+                        @include desktop-l{
+                            font-size: 23px;
+                        }
+                        @include desktop-m{
+                            font-size: 20px;
+                        }
+                        @include desktop-s{
+                            font-size: 17px;
+                        }
                     }
 
                     &_button{
-                        color: #fff;
-                        border: 1px solid #fff;
+                        color: $white;
+                        border: 1px solid $white;
                         justify-content: center;
                         align-items: center;
                         padding: 1vh 2vw;
-                        font-size: 17px;
+                        font-size: 20px;
                         border-radius: 20px;
                         font-weight: 300;
                         display: flex;
                         cursor: pointer;
                         transition: all 0.3s ease;
+                        @include desktop-l{
+                            font-size: 18px;
+                        }
+                        @include desktop-m{
+                            font-size: 17px;
+                        }
+                        @include desktop-s{
+                            font-size: 15px;
+                        }
 
                         &:hover{
-                            color:rgb(68, 69, 69);
-                            background-color: white;
+                            color: $medium;
+                            background-color: $white;
                         }
                     }
                 }
                 &__name{
-                    font-size: 40px;
-                    color: white;
+                    font-size: 50px;
+                    color: $white;
                     font-weight: 400;
                     transform: scaleY(1.2);
                     text-transform: uppercase;
                     display: flex;
                     justify-content: center;
+                    @include desktop-l{
+                        font-size: 44px;
+                    }
+                    @include desktop-m{
+                        font-size: 40px;
+                    }
+                    @include desktop-s{
+                        font-size: 36px;
+                    }
                 }
 
                 &__description{
-                    font-size: 12px;
-                    color: white;
+                    font-size: 16px;
+                    color: $white;
                     font-weight: 300;
                     font-style: italic;
+                    @include desktop-l{
+                        font-size: 14px;
+                    }
+                    @include desktop-m{
+                        font-size: 12px;
+                    }
+                    @include desktop-s{
+                        font-size: 11px;
+                    }
                 }
             }
 
@@ -616,11 +582,12 @@ p{
         right: auto;
         opacity: 1;
         cursor: pointer;
+        mix-blend-mode: initial;
 
         // transform: translate(-50%, -50%);
 
         p{
-            color: #141414;
+            color: $dark;
             font-size: 30px;
             font-weight: 400;
             opacity: 1;
@@ -629,7 +596,7 @@ p{
         }
 
         span{
-            background-color: white;
+            background-color: $white;
             width: 100%;
             height: 100%;
             position: absolute;
@@ -668,8 +635,6 @@ p{
     z-index: 1;
     top: 0;
     left: 0;
-    // right: 10vw;
-    // top: 40vh;
 
     &_contact{
         width: 30vw;

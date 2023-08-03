@@ -13,7 +13,6 @@ export class Projects{
         ];
         this.cards = document.querySelectorAll('.js-project');
         this.buttons = document.querySelectorAll('.js-project-btn');
-        // this.portfolio = new Portfolio();
         this.initProjectsTimeline();
         this.initProjectsLinks();
     }
