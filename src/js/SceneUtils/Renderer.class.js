@@ -30,7 +30,6 @@ export default class Renderer
         this.instance.shadowMap.enabled = true
         this.instance.shadowMap.type = PCFSoftShadowMap; 
         this.story.canvas = this.instance.domElement = this.canvas; 
-        console.log(this.canvas)
         
     }
 

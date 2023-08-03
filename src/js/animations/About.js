@@ -18,7 +18,6 @@ export class About{
         if(!this.isMobile) this.setItemHover(); 
         this.initExpsTimeline();
         this.initItemParallax();
-        this.initDescriptionAnimation();
     }
 
     initTextsAnimation(){
@@ -44,29 +43,6 @@ export class About{
                 start: 'top 90%',
                 end: '+=120%',
                 scrub: 1,
-            }
-        });
-    }
-
-    initDescriptionAnimation(){
-        const show = () => {
-            gsap.fromTo(this.text, {
-                opacity: 0,
-                y: 100,
-            },{
-                opacity: 1,
-                y: 0,
-                duration: 0.3,
-                ease: 'power1.easeIn',
-            });
-        }
-
-        const tl = gsap.timeline();
-        tl.to(this.text, {
-            onStart: () => show(),
-            scrollTrigger: {
-                trigger: this.text,
-                start: 'top 90%',
             }
         });
     }
@@ -201,6 +177,17 @@ export class About{
                 ease: 'power1.easeIn',
             });
         }
+        const showDescription = () => {
+            gsap.fromTo(this.text, {
+                opacity: 0,
+                y: 100,
+            },{
+                opacity: 1,
+                y: 0,
+                duration: 0.3,
+                ease: 'power1.easeIn',
+            });
+        }
 
         const tl = gsap.timeline();
         tl.to(this.exps, {
@@ -210,6 +197,13 @@ export class About{
                 start: this.isMobile ? 'top 90%' : 'top 80%',
                 end: 'top 70%',
                 toggleActions: 'play none none none',
+            }
+        }).to(this.text, {
+            delay: 0.6,
+            onStart: () => showDescription(),
+            scrollTrigger: {
+                trigger: this.text,
+                start: 'top 90%',
             }
         });
     }

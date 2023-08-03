@@ -2,11 +2,13 @@ import { gsap } from "gsap";
 import { ScrollTrigger, ScrollToPlugin } from "gsap/all";
 import { ContactSphere } from "../Stories/ContactSphere";
 import debounce from "../lib/debounce";
+import { isMobileDevice } from "../lib/utils";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 export class Contact{
     constructor(){
+        this.isMobile = isMobileDevice();
         this.section = document.querySelector('.js-contact');
         this.links = document.querySelectorAll('.js-contact-link');
         this.linksInside = document.querySelectorAll('.js-contact-inside');
@@ -25,19 +27,17 @@ export class Contact{
             '../../../Elizabeth_Shibut_CV.pdf'
         ];
 
-        console.log(refs)
-
         const onMouseClick = (e, i) => {
             e.preventDefault();
             window.open(refs[i], "_blank");
         };
 
         this.links.forEach((link, i) => {
-            link.addEventListener('mouseenter', () => this.setItemHover(link));
+            if(!this.isMobile) link.addEventListener('mouseenter', () => this.setItemHover(link));
             link.addEventListener('click', (e) => onMouseClick(e, i));
         });
 
-        this.cv.addEventListener('mouseenter', () => this.setItemHover(link));
+        if(!this.isMobile) this.cv.addEventListener('mouseenter', () => this.setItemHover(link));
         this.cv.addEventListener('click', (e) => onMouseClick(e, 4));
     }
 
@@ -67,7 +67,8 @@ export class Contact{
                 transform: 'translateY(102%)',
             }, {
                 transform: 'translateY(0%)',
-                duration: 0.3,
+                stagger: 0.4,
+                duration: 0.5,
                 ease: 'power1.ease',
             });
         };

@@ -10,7 +10,6 @@ export default class Camera
     constructor(_story)
     {
         this.isMobile = isMobileDevice();
-        console.log(this.isMobile)
         this.story = _story;
         this.sizes = this.story.sizes;
         this.scene = this.story.scene;
