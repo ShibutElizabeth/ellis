@@ -1,4 +1,8 @@
-import * as THREE from 'three';
+import {
+    WebGLRenderer,
+    sRGBEncoding,
+    PCFSoftShadowMap
+} from 'three';
 
 export default class Renderer
 {
@@ -15,16 +19,16 @@ export default class Renderer
 
     setInstance()
     {
-        this.instance = new THREE.WebGLRenderer({
+        this.instance = new WebGLRenderer({
             powerPreference: 'high-performance',
             canvas: this.canvas
         });
 
         this.instance.setSize(this.canvas.width, this.canvas.height);
         this.instance.setPixelRatio(Math.min(this.sizes.width / this.sizes.height, 2));
-        this.instance.outputEncoding = THREE.sRGBEncoding;
+        this.instance.outputEncoding = sRGBEncoding;
         this.instance.shadowMap.enabled = true
-        this.instance.shadowMap.type = THREE.PCFSoftShadowMap; 
+        this.instance.shadowMap.type = PCFSoftShadowMap; 
         this.story.canvas = this.instance.domElement = this.canvas; 
         console.log(this.canvas)
         

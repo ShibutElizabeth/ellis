@@ -7,27 +7,58 @@
         <link rel="stylesheet" href="./style.scss">
     </head>
     <body>
+        <!-- BEGIN -->
         <main>
+            <!-- BEGIN scroll-container -->
             <div data-scroll-container>
-                <div class="section hero" data-scroll-section>
+                <!-- BEGIN HERO -->
+                <div class="section hero js-hero" data-scroll-section>
+                    <!-- BEGIN skills-canvas -->
                     <div id="canvas-container-skills" class="canvas-container">
                         <canvas id="canvas-skills"></canvas>
                     </div>
+                    <!-- END skills-canvas -->
+                    <!-- BEGIN hero__container-->
                     <div class="hero__container">
-                        <div class="name-wrapper hero_header js-name-wrapper"><h1 class="name js-name">Elizabeth</h1></div>
-                        <div class="name-wrapper hero_header js-name-wrapper"><h1 class="name js-name">Shibut</h1></div>
+                        <!-- BEGIN name-wrapper -->
+                        <div class="name-wrapper hero__container_header js-hero-name-wrapper">
+                            <h1 class="name js-hero-name">Elizabeth</h1>
+                        </div>
+                        <!-- END name-wrapper -->
+                        <!-- BEGIN name-wrapper -->
+                        <div class="name-wrapper hero__container_header js-hero-name-wrapper">
+                            <h1 class="name js-hero-name">Shibut</h1>
+                        </div>
+                        <!-- END name-wrapper -->
+                        <!-- BEGIN mouse-scroll -->
                         <svg class="mouse js-mouse-scroll" width="800" height="800" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5 15C5 16.8565 5.73754 18.6371 7.05029 19.9498C8.36305 21.2626 10.1435 21.9999 12 21.9999C13.8565 21.9999 15.637 21.2626 16.9498 19.9498C18.2625 18.6371 19 16.8565 19 15V9C19 7.14348 18.2625 5.36305 16.9498 4.05029C15.637 2.73754 13.8565 2 12 2C10.1435 2 8.36305 2.73754 7.05029 4.05029C5.73754 5.36305 5 7.14348 5 9V15Z" stroke="#141414" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M12 6V14" stroke="#141414" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M15 11L12 14L9 11" stroke="#141414" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
+                        <!-- END mouse-scroll -->
                     </div>
-                    <div class="hero_mask"></div>
+                    <!-- END hero__container -->
+                    <!-- BEGIN hero__mask -->
+                    <div class="hero__mask js-hero-mask"></div>
+                    <!-- END hero__mask -->
+                    <!-- BEGIN hero__container -->
                     <div id="skills-container" class="hero__container">
-                        <div class="name-wrapper-horizontal skills_header"><h1 class="name js-skills-header">Skills</h1></div>
-                        <div class="hero_mark js-skills-mark">Selected</div>
+                        <!-- BEGIN name-wrapper -->
+                        <div class="name-wrapper-horizontal skills__header">
+                            <h1 class="name js-skills-header">Skills</h1>
+                        </div>
+                        <!-- END name-wrapper -->
+                        <!-- BEGIN hero__mark -->
+                        <div class="hero__mark js-skills-mark">Selected</div>
+                        <!-- END hero__mark -->
+                        <!-- BEGIN description -->
                         <div class="description js-description">
-                            <div class="name-wrapper description_name js-descr-wrapper"><h4 class="name js-skill-name">GSAP</h4></div>
+                            <!-- BEGIN name-wrapper -->
+                            <div class="name-wrapper description__name js-descr-wrapper">
+                                <h4 class="name js-skill-name">GSAP</h4>
+                            </div>
+                            <!-- END name-wrapper -->
                             <div class="line js-skill-line"></div>
                             <p class="js-skill-experience">(3+ years)</p>
                             <p class="js-skill-descr">
@@ -36,57 +67,82 @@
                                 Necessitatibus sunt, earum nemo veritatis blanditiis fugiat vel, labore cumque mollitia impedit quam accusamus cupiditate nisi, perferendis architecto ut sit quis culpa!
                             </p>
                         </div>
+                        <!-- END description -->
+                        <!-- BEGIN mouse-scroll -->
                         <svg class="mouse js-mouse-click" width="800" height="800" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5 9C5 5.13401 8.13401 2 12 2C15.866 2 19 5.13401 19 9V15C19 18.866 15.866 22 12 22C8.13401 22 5 18.866 5 15V9Z" stroke="#141414" stroke-width="1"/>
                             <path d="M12 5V8" stroke="#141414" stroke-width="1" stroke-linecap="round"/>
-                            
                         </svg>
+                        <!-- END mouse-scroll -->
                     </div>
+                    <!-- END hero__container -->
                 </div>
-                <div class="section about" data-scroll-section>
+                <!-- END HERO -->
+                <!-- BEGIN ABOUT -->
+                <div class="section about js-about" data-scroll-section>
+                    <!-- BEGIN move -->
                     <div class="move">
-                        <h1 class="move-text js-about-move">cndclkcnkdnclkdacnkvnlskdcn</h1>
-                        <h1 class="move-text js-about-move">cndclkcnkdnclkdacnkvnlskdcn</h1>
+                        <h1 class="move__text js-about-move">cndclkcnkdnclkdacnkvnlskdcn</h1>
+                        <h1 class="move__text js-about-move">cndclkcnkdnclkdacnkvnlskdcn</h1>
                     </div>
-                    <div class="about_photo js-about-photo"><img src="static/me.jpeg" alt=""/></div>
+                    <!-- END move -->
+                    <!-- BEGIN about__photo -->
+                    <div class="about__photo js-about-photo">
+                        <img src="static/me.jpeg" alt=""/>
+                    </div>
+                    <!-- END about__photo -->
+                    <!-- BEGIN about__container -->
                     <div class="about__container">
+                        <!-- BEGIN exp -->
                         <div class="exp js-exp">
-                            <div class="exp_icon-wrapper">
-                                <svg class="icon" viewBox="100 100 800 800" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <div class="exp__icon-wrapper">
+                                <svg class="exp__icon-wrapper_icon" viewBox="100 100 800 800" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                     <path style="stroke: 1; color: #ffffff" d="M895.1808 395.3664L521.728 194.8672c-6.0416-3.2768-13.312-3.2768-19.3536 0L128.8192 395.3664c-14.2336 7.68-14.4384 27.9552-0.3072 35.9424L264.192 507.5968v194.4576c0 7.8848 4.608 15.1552 11.6736 18.5344l230.1952 109.056c5.632 2.6624 12.0832 2.6624 17.7152-0.1024l224.4608-108.8512c7.0656-3.3792 11.5712-10.5472 11.5712-18.432V507.5968l73.9328-41.5744v310.6816c0 11.264 9.216 20.48 20.48 20.48s20.48-9.216 20.48-20.48V442.9824l20.7872-11.6736c14.1312-7.9872 13.9264-28.2624-0.3072-35.9424zM718.848 686.1824L514.8672 790.3232 305.152 685.9776V530.6368l196.8128 110.592c6.2464 3.4816 13.824 3.4816 20.0704 0l196.8128-110.592v155.5456z m-206.848-86.3232L181.0432 413.7984 512 236.1344l330.9568 177.664L512 599.8592z" />
                                 </svg>
                             </div>
-                            <p class="exp_description"><b>Belarussian State University</b> (Sep2018-Dec2021) - <span>Student</span><br>Faculty of Applied Mathematics and Computer Science</p>
+                            <p class="exp__description"><b>Belarussian State University</b> (Sep2018-Dec2021) - <span>Student</span><br>Faculty of Applied Mathematics and Computer Science</p>
                         </div>
+                        <!-- END exp -->
+                        <!-- BEGIN exp -->
                         <div class="exp js-exp">
-                            <div class="exp_icon-wrapper">
-                                <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <div class="exp__icon-wrapper">
+                                <svg class="exp__icon-wrapper_icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M704 416H320a32 32 0 0 0 0 64h384a32 32 0 0 0 0-64zM704 608H320a32 32 0 0 0 0 64h384a32 32 0 0 0 0-64z"  /><path d="M832 32H192C139.072 32 96 75.072 96 128v768c0 52.928 43.072 96 96 96h640c52.928 0 96-43.072 96-96V128c0-52.928-43.072-96-96-96zM320 96h384v96H320V96z m544 800a32 32 0 0 1-32 32H192c-17.632 0-32-14.336-32-32V128c0-17.632 14.368-32 32-32h64v96c0 35.296 28.704 64 64 64h384c35.296 0 64-28.704 64-64V96h64c17.664 0 32 14.368 32 32v768z"  />
                                 </svg>
                             </div>
-                            <p class="exp_description"><b>Private clients</b> (May2020-Nov2021) - <span>Freelance</span><br>Stack: Javascript, Typescript, React.js, Angular.ts, ASP.Net, Three.js, WebGL, node.js. <br></p>
+                            <p class="exp__description"><b>Private clients</b> (May2020-Nov2021) - <span>Freelance</span><br>Stack: Javascript, Typescript, React.js, Angular.ts, ASP.Net, Three.js, WebGL, node.js. <br></p>
                         </div>
+                        <!-- END exp -->
+                        <!-- BEGIN exp -->
                         <div class="exp js-exp">
-                            <div class="exp_icon-wrapper">
-                                <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <div class="exp__icon-wrapper">
+                                <svg class="exp__icon-wrapper_icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M885.333333 256H725.333333V198.4C723.2 157.866667 689.066667 128 648.533333 128h-298.666666c-40.533333 2.133333-72.533333 34.133333-72.533334 74.666667V256H138.666667C98.133333 256 64 290.133333 64 330.666667v490.666666C64 861.866667 98.133333 896 138.666667 896h746.666666c40.533333 0 74.666667-34.133333 74.666667-74.666667v-490.666666c0-40.533333-34.133333-74.666667-74.666667-74.666667zM341.333333 202.666667c2.133333-6.4 6.4-10.666667 12.8-10.666667h296.533334c6.4 0 10.666667 6.4 10.666666 10.666667V256H341.333333V202.666667zM138.666667 320h746.666666c6.4 0 10.666667 4.266667 10.666667 10.666667v128H128v-128c0-6.4 4.266667-10.666667 10.666667-10.666667z m277.333333 202.666667h192V576c0 6.4-4.266667 10.666667-10.666667 10.666667h-170.666666c-6.4 0-10.666667-4.266667-10.666667-10.666667v-53.333333z m469.333333 309.333333h-746.666666c-6.4 0-10.666667-4.266667-10.666667-10.666667v-298.666666h224V576c0 40.533333 34.133333 74.666667 74.666667 74.666667h170.666666c40.533333 0 74.666667-34.133333 74.666667-74.666667v-53.333333H896v298.666666c0 6.4-4.266667 10.666667-10.666667 10.666667z"  />
                                 </svg>
                             </div>
-                            <p class="exp_description"><b>Coderiver</b> (Nov2021-Jun2022) - <span>Front-end creative developer</span><br>Stack: Javascript, Three.js, GSAP, Vue.js, parcel.js, node.js, gulp. </p>
+                            <p class="exp__description"><b>Coderiver</b> (Nov2021-Jun2022) - <span>Front-end creative developer</span><br>Stack: Javascript, Three.js, GSAP, Vue.js, parcel.js, node.js, gulp. </p>
                         </div>
+                        <!-- END exp -->
+                        <!-- BEGIN exp -->
                         <div class="exp js-exp">
-                            <div class="exp_icon-wrapper">
-                                <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <div class="exp__icon-wrapper">
+                                <svg class="exp__icon-wrapper_icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M885.333333 256H725.333333V198.4C723.2 157.866667 689.066667 128 648.533333 128h-298.666666c-40.533333 2.133333-72.533333 34.133333-72.533334 74.666667V256H138.666667C98.133333 256 64 290.133333 64 330.666667v490.666666C64 861.866667 98.133333 896 138.666667 896h746.666666c40.533333 0 74.666667-34.133333 74.666667-74.666667v-490.666666c0-40.533333-34.133333-74.666667-74.666667-74.666667zM341.333333 202.666667c2.133333-6.4 6.4-10.666667 12.8-10.666667h296.533334c6.4 0 10.666667 6.4 10.666666 10.666667V256H341.333333V202.666667zM138.666667 320h746.666666c6.4 0 10.666667 4.266667 10.666667 10.666667v128H128v-128c0-6.4 4.266667-10.666667 10.666667-10.666667z m277.333333 202.666667h192V576c0 6.4-4.266667 10.666667-10.666667 10.666667h-170.666666c-6.4 0-10.666667-4.266667-10.666667-10.666667v-53.333333z m469.333333 309.333333h-746.666666c-6.4 0-10.666667-4.266667-10.666667-10.666667v-298.666666h224V576c0 40.533333 34.133333 74.666667 74.666667 74.666667h170.666666c40.533333 0 74.666667-34.133333 74.666667-74.666667v-53.333333H896v298.666666c0 6.4-4.266667 10.666667-10.666667 10.666667z"  />
                                 </svg>
                             </div>
-                            <p class="exp_description"><b>Sloyd</b> (Jun2018-present) - <span>Full-stack developer</span><br>Stack: Typescript, React.ts, GSAP, CosmosDB, axios, Auth0, paddle. </p>
+                            <p class="exp__description"><b>Sloyd</b> (Jun2018-present) - <span>Full-stack developer</span><br>Stack: Typescript, React.ts, GSAP, CosmosDB, axios, Auth0, paddle. </p>
                         </div>
+                        <!-- END exp -->
                     </div>
-                    <div class="about_text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus quos saepe dolorum adipisci accusantium veniam explicabo. Molestias voluptatibus, possimus et facilis quas officia illum nesciunt sed reiciendis dolores eius repellat.</div>
+                    <!-- END about__container -->
+                    <div class="about__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus quos saepe dolorum adipisci accusantium veniam explicabo. Molestias voluptatibus, possimus et facilis quas officia illum nesciunt sed reiciendis dolores eius repellat.</div>
                 </div>
-                <div class="section projects" data-scroll-section>
+                <!-- END ABOUT -->
+                <!-- BEGIN PROJECTS -->
+                <div class="section projects js-projects" data-scroll-section>
+                    <!-- BEGIN projects__gallery -->
                     <div class="projects__gallery">
+                        <!-- BEGIN projects__gallery_card -->
                         <div class="projects__gallery_card js-project">
                             <div class="box">
                                 <div class="box__header">
@@ -104,6 +160,8 @@
                                     </div>
                             </div>
                         </div>
+                        <!-- END projects__gallery_card -->
+                        <!-- BEGIN projects__gallery_card -->
                         <div class="projects__gallery_card js-project">
                             <div class="box">
                                 <div class="box__header">
@@ -122,6 +180,8 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- END projects__gallery_card -->
+                        <!-- BEGIN projects__gallery_card -->
                         <div class="projects__gallery_card js-project">
                             <div class="box">
                                 <div class="box__header">
@@ -145,6 +205,8 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- END projects__gallery_card -->
+                        <!-- BEGIN projects__gallery_card -->
                         <div class="projects__gallery_card js-project">
                             <div class="box">
                                 <div class="box__header">
@@ -160,6 +222,8 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- END projects__gallery_card -->
+                        <!-- BEGIN projects__gallery_card -->
                         <div class="projects__gallery_card js-project">
                             <div class="box">
                                 <div class="box__header">
@@ -175,19 +239,34 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- END projects__gallery_card -->
                     </div>
+                    <!-- END projects__gallery -->
                 </div>
-                <div class="section contact" data-scroll-section>
-                    <div class="contact__link name-wrapper js-contact-link"><p class="name js-contact-inside">LinkedIn</p><span></span></div>
-                    <div class="contact__link name-wrapper js-contact-link"><p class="name js-contact-inside">GitHub</p><span></span></div>
-                    <div class="contact__link name-wrapper js-contact-link"><p class="name js-contact-inside">Gmail</p><span></span></div>
-                    <div class="contact__link name-wrapper js-contact-link"><p class="name js-contact-inside">WhatsApp</p><span></span></div>
+                <!-- END PROJECTS -->
+                <!-- BEGIN CONTACT -->
+                <div class="section contact js-contact" data-scroll-section>
+                    <div class="contact__link name-wrapper js-contact-link">
+                        <p class="name js-contact-inside">LinkedIn</p>
+                    </div>
+                    <div class="contact__link name-wrapper js-contact-link">
+                        <p class="name js-contact-inside">GitHub</p>
+                    </div>
+                    <div class="contact__link name-wrapper js-contact-link">
+                        <p class="name js-contact-inside">Gmail</p>
+                    </div>
+                    <div class="contact__link name-wrapper js-contact-link">
+                        <p class="name js-contact-inside">WhatsApp</p>
+                    </div>
                     <div id="canvas-container-contact" class="canvas-container canvas-container_contact">
                         <canvas id="canvas-contact"></canvas>
                     </div>
                 </div>
+                <!-- END CONTACT -->
             </div>
+            <!-- END scroll-container -->
         </main>
+        <!-- END -->
         <script type="module" src="../src/js/app.js"></script>
 	</body>
 </html>

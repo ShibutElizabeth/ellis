@@ -4,8 +4,7 @@ export default class Time extends EventEmitter
 {
     constructor()
     {
-        super()
-
+        super();
         // Setup
         this.start = Date.now();
         this.current = this.start;

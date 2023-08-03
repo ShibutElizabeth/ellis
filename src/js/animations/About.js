@@ -1,12 +1,12 @@
 import { gsap } from "gsap";
 import { ScrollTrigger, ScrollToPlugin } from "gsap/all";
-import debounce from "./lib/debounce";
-
+import debounce from "../lib/debounce";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 export class About{
     constructor(){
+        this.section = document.querySelector('.js-about');
         this.headers = document.querySelectorAll('.js-about-move');
         this.photo = document.querySelector('.js-about-photo');
         this.img = this.photo.querySelector('img');
@@ -19,12 +19,13 @@ export class About{
 
     initTextsAnimation(){
         const tl = gsap.timeline();
-        tl.fromTo(this.headers[0], {
+        tl
+        .fromTo(this.headers[0], {
             x: '0%',
         }, {
             x: '-55%',
             scrollTrigger: {
-                trigger: '.about',
+                trigger: this.section,
                 start: 'top 90%',
                 end: '+=120%',
                 scrub: 1,
@@ -35,7 +36,7 @@ export class About{
         }, {
             x: '0%',
             scrollTrigger: {
-                trigger: '.about',
+                trigger: this.section,
                 start: 'top 90%',
                 end: '+=120%',
                 scrub: 1,
@@ -44,7 +45,6 @@ export class About{
     }
 
     setItemHover() {
-        // const that = this;
         const self = this.photo;
         let hover = false;
     
@@ -130,12 +130,15 @@ export class About{
                 duration: 0.5,
                 ease: 'power1.easeIn',
             });
-        }
+        };
+
         gsap.set(this.photo, {
             opacity: 0,
             y: 100,
-        })
-        tl.to(this.photo, {
+        });
+
+        tl
+        .to(this.photo, {
             onStart: () => show(),
             scrollTrigger: {
                 trigger: this.photo,
@@ -143,7 +146,8 @@ export class About{
                 end: 'top 80%',
                 toggleActions: 'play none none none'
             }
-        }).fromTo(this.img, {
+        })
+        .fromTo(this.img, {
             y: 0,
         }, {
             y: 30,
@@ -157,7 +161,6 @@ export class About{
     }
 
     initExpsTimeline(){
-
         const show = () => {
             gsap.fromTo(this.exps, {
                 opacity: 0,

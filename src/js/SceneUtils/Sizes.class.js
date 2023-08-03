@@ -60,12 +60,10 @@ export default class Sizes extends EventEmitter
     //manual trigger
     resize()
     {
-        console.log('click');
         const rect = this.container.getBoundingClientRect();
         this.width = rect.width;
         this.height = rect.height;
         this.pixelRatio = Math.min(this.width / this.height, 2);
-        // this.canvas.pixelRatio = Math.min(this.width / this.height, 2);
         this.trigger('resize');
     }
 

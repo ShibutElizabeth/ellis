@@ -1,10 +1,18 @@
-import * as THREE from 'three';
-import * as CANNON from 'cannon-es';
+import {
+    BoxGeometry,
+    Vector3
+} from 'three';
+import {
+    Material,
+    Body,
+    Box,
+    Vec3
+} from 'cannon-es';
 import { StoryObject } from './StoryObject.class';
 
 export class Box extends StoryObject{
     constructor(_story, _width, _height, _depth, _x, _y, _z, _material){
-       super(_story, new THREE.BoxGeometry(_width, _height, _depth), _material);
+       super(_story, new BoxGeometry(_width, _height, _depth), _material);
        this.size = {
         width: _width,
         height: _height,
@@ -16,22 +24,22 @@ export class Box extends StoryObject{
         z: _z
        };
        this.contactMaterials = [];
-       this.setParameters(new THREE.Vector3(_x, _y, _z), true, true);
+       this.setParameters(new Vector3(_x, _y, _z), true, true);
     }
 
     setPhysics(qX, qY, qZ){
-        this.physicsMaterial = new CANNON.Material();
-        this.body = new CANNON.Body({
+        this.physicsMaterial = new Material();
+        this.body = new Body({
             mass: 4,
-            shape: new CANNON.Box(
-                new CANNON.Vec3(
+            shape: new Box(
+                new Vec3(
                     this.size.width/2, 
                     this.size.height/2, 
                     this.size.depth/2
                 )
             ),
             material: this.physicsMaterial,
-            position: new CANNON.Vec3(
+            position: new Vec3(
                 this.initPosition.x,
                 this.initPosition.y,
                 this.initPosition.z

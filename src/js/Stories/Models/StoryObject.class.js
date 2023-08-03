@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import { Mesh } from 'three';
 
 export class StoryObject {
     constructor(_story, _geometry, _material){
@@ -11,7 +11,7 @@ export class StoryObject {
     setInstance(geometry, material){
         this.geometry = geometry; 
         this.material = material;
-        this.instance = new THREE.Mesh(this.geometry, this.material); 
+        this.instance = new Mesh(this.geometry, this.material); 
     }
 
     setParameters(position, cast, receive){

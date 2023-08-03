@@ -5,12 +5,6 @@ gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 export class Projects{
     constructor(){
-        this.sources = [
-            '../../moralia.png',
-            '../../younergy.png',
-            '../../wlitz.png',
-            '../../sloyd.png'
-        ];
         this.cards = document.querySelectorAll('.js-project');
         this.buttons = document.querySelectorAll('.js-project-btn');
         this.initProjectsTimeline();
@@ -25,7 +19,6 @@ export class Projects{
                 scrollTrigger: {
                     trigger: card,
                     start: 'top 70%',
-                    // end: 'top 75%',
                     scrub: 1,
                 }
             })

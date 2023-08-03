@@ -1,8 +1,11 @@
-import * as THREE from 'three';
+import {
+    TextureLoader,
+    MeshPhysicalMaterial
+} from 'three';
 
 export class Materials{
     constructor(){
-        this.textureLoader  = new THREE.TextureLoader();
+        this.textureLoader  = new TextureLoader();
 		this.skillsSources = [
             '../../../gsap-logo.png',
             '../../../typescript-logo.png',
@@ -30,6 +33,6 @@ export class Materials{
         const texture = this.textureLoader.load(url);
         texture.flipY = true;
         texture.flipX = true;
-        return new THREE.MeshPhysicalMaterial({ map: texture });
+        return new MeshPhysicalMaterial({ map: texture });
     }
 }

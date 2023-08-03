@@ -8,11 +8,11 @@ export default class SkillsController
 {
     constructor(_story)
     {
-
         // Setup
         this.story = _story;
         this.camera = this.story.camera;
         this.config = this.story.config;
+        this.container = document.querySelector('#skills-container')
         this.skillName = document.querySelector('.js-skill-name');
         this.skillExperience = document.querySelector('.js-skill-experience');
         this.skillDescr = document.querySelector('.js-skill-descr');
@@ -38,12 +38,6 @@ export default class SkillsController
         gsap.set([this.skillDescr, this.skillExperience], {
             opacity: 0,
         });
-        // gsap.set(this.skillName, {
-        //     transform: 'translateY(0%)'
-        // });
-        // gsap.set(this.skillLine, {
-        //     transform: 'scaleX(1)'
-        // })
     }
 
     setRaycaster(){
@@ -57,7 +51,7 @@ export default class SkillsController
         }, {
             y: '60vh',
             scrollTrigger: {
-                trigger: '#skills-container',
+                trigger: this.container,
                 start: 'top 90%',
                 end: 'top 50%',
                 scrub: 1
@@ -73,17 +67,18 @@ export default class SkillsController
         }, {
             opacity: 1,
             scrollTrigger: {
-                trigger: '#skills-container',
+                trigger: this.container,
                 start: 'top 50%',
                 end: 'top 30%',
                 scrub: 1
             }
-        })
+        });
     }
 
     cameraTransition(){
         const camTL = gsap.timeline();
-        camTL.fromTo(this.camera.instance.position, {
+        camTL
+        .fromTo(this.camera.instance.position, {
             x: 6,
             y: 6,
             z: 15,
@@ -92,12 +87,13 @@ export default class SkillsController
             y: 6.5,
             z: 1,
             scrollTrigger: {
-                trigger: '#skills-container',
+                trigger: this.container,
                 start: 'top 90%',
                 end: 'top 30%',
                 scrub: 1
             }
-        }).fromTo(this.camera.controls.target, {
+        })
+        .fromTo(this.camera.controls.target, {
             x: -5,
             y: 1,
             z: 1,
@@ -106,7 +102,7 @@ export default class SkillsController
             y: 0.6,
             z: 0.18,
             scrollTrigger: {
-                trigger: '#skills-container',
+                trigger: this.container,
                 start: 'top 90%',
                 end: 'top 30%',
                 scrub: 1,
@@ -114,7 +110,9 @@ export default class SkillsController
         })
     }
 
-    show = () => gsap.timeline().fromTo(this.skillName, {
+    show = () => 
+    gsap.timeline()
+    .fromTo(this.skillName, {
         transform: 'translateY(102%)',
     }, {
         transform: 'translateY(0%)',
@@ -137,12 +135,13 @@ export default class SkillsController
         ease: 'power1.easeOut',
     });
 
-    hide = (index) => gsap.timeline().to([this.skillExperience, this.skillDescr], {
+    hide = (index) => 
+    gsap.timeline()
+    .to([this.skillExperience, this.skillDescr], {
         opacity: 0,
         duration: 0.3,
         delay: 0.1,
         ease: 'power1.easeOut',
-        // onComplete: () => changeDescription(),
     })
     .to(this.skillLine, {
         transform: 'scaleX(0)',
@@ -150,8 +149,6 @@ export default class SkillsController
         delay: 0.1,
     })
     .to(this.skillName, {
-    //     transform: 'translateY(0%)',
-    // },{
         transform: 'translateY(102%)',
         duration: 0.3,
         delay: 0.1,
@@ -171,19 +168,21 @@ export default class SkillsController
         const mark = document.querySelector('.js-skills-mark');
 
         const tl = gsap.timeline();
-        tl.fromTo(header, {
+        tl
+        .fromTo(header, {
             transform: 'translateX(-102%)',
         }, {
             transform: 'translateX(0%)',
             duration: 0.6,
             ease: 'power1.easeOut',
             scrollTrigger: {
-                trigger: '#skills-container',
+                trigger: this.container,
                 start: 'top 60%',
                 end: 'top 30%',
                 scrub: 1
             }
-        }).fromTo(mark, {
+        })
+        .fromTo(mark, {
             opacity: 0,
         }, {
             opacity: 1,
@@ -191,7 +190,7 @@ export default class SkillsController
             delay: 0.1,
             ease: 'power1.easeOut',
             scrollTrigger: {
-                trigger: '#skills-container',
+                trigger: this.container,
                 start: 'top 40%',
                 end: 'top 30%',
                 scrub: 1

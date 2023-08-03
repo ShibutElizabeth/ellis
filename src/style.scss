@@ -161,7 +161,7 @@ p{
     position: relative;
     height: 180vh;
 
-    &_mark{
+    &__mark{
         position: absolute;
         top: 58vh;
         right: 10vw;
@@ -178,7 +178,7 @@ p{
         display: flex;
         flex-direction: column;
 
-        .hero_header{
+        &_header{
             background-color: transparent;
             position: absolute;
             top: 34vh;
@@ -189,7 +189,7 @@ p{
             }
         }
 
-        .skills_header{
+        .skills__header{
             top: -2vh;
             right: 0.6vw;
         }
@@ -217,7 +217,7 @@ p{
                 transform: scaleX(0);
                 transform-origin: left center;
             }
-            &_name{
+            &__name{
                 position: relative;
                 margin: 0;
                 transform: scaleX(1);
@@ -258,7 +258,7 @@ p{
         }
     }
 
-    &_mask{
+    &__mask{
         background-color: $light;
         width: 65vw;
         height: 65vh;
@@ -266,34 +266,6 @@ p{
         top: 25vh;
         left: 25vw;
         z-index: 0;
-    }
-
-    &_block{
-        margin-top: 25vh;
-        max-width: 45vw;
-        margin-left: 10vw;
-        z-index: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: left;
-
-        h1{
-            font-size: 180px;
-            text-align: left;
-            margin: 0;
-            padding: 0;
-            width: 45vw;
-
-            @include desktop-l{
-                font-size: 160px;
-            }
-            @include desktop-m{
-                font-size: 140px;
-            }
-            @include desktop-s{
-                font-size: 120px;
-            }
-        }
     }
 
 }
@@ -305,7 +277,7 @@ p{
     background-color: transparent;
     overflow-x: hidden;
 
-    &_photo{
+    &__photo{
         position: absolute;
         top: 48vh;
         left: 5vw;
@@ -340,13 +312,13 @@ p{
             gap: 2vw;
             opacity: 0;
 
-            &_icon-wrapper{
+            &__icon-wrapper{
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 min-width: 5vw;
 
-                .icon{
+                &_icon{
                     width: 4vw;
                     height: auto;
     
@@ -358,7 +330,7 @@ p{
                 }
             }
 
-            &_description{
+            &__description{
                 color: $white;
                 font-weight: 300;
                 font-size: 18px;
@@ -372,7 +344,7 @@ p{
         }
     }
 
-    &_text{
+    &__text{
         color: $white;
         opacity: 1;
         margin: 25vh auto 5vh;
@@ -392,7 +364,7 @@ p{
         height: 15vh;
     }
 
-    .move-text{
+    &__text{
         position: relative;
         font-size: 200px;
         font-style: bold;

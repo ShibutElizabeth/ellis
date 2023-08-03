@@ -1,4 +1,7 @@
-import * as THREE from 'three';
+import {
+    OrthographicCamera,
+    PerspectiveCamera,
+} from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 export default class Camera
@@ -18,9 +21,9 @@ export default class Camera
     setInstance()
     {
         if(this.orthographic){
-            this.instance = new THREE.OrthographicCamera(-10, 10, 10,  -10, - 10, 10);   
+            this.instance = new OrthographicCamera(-10, 10, 10,  -10, - 10, 10);   
         } else{
-            this.instance = new THREE.PerspectiveCamera(45, this.sizes.width / this.sizes.height, 0.4, 1000);
+            this.instance = new PerspectiveCamera(45, this.sizes.width / this.sizes.height, 0.4, 1000);
             this.instance.position.x = 6;
             this.instance.position.y = 6;
             this.instance.position.z = 15;

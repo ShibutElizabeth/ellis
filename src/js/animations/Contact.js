@@ -1,16 +1,15 @@
 import { gsap } from "gsap";
 import { ScrollTrigger, ScrollToPlugin } from "gsap/all";
-import { ContactSphere } from "./Stories/ContactSphere";
-import debounce from "./lib/debounce";
+import { ContactSphere } from "../Stories/ContactSphere";
+import debounce from "../lib/debounce";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 export class Contact{
     constructor(){
-        this.section = document.querySelector('.contact');
+        this.section = document.querySelector('.js-contact');
         this.links = document.querySelectorAll('.js-contact-link');
         this.linksInside = document.querySelectorAll('.js-contact-inside');
-        this.spans = this.section.querySelectorAll('span');
         this.initContactTimeline();
         this.linksOnMouseHover();
         this.contactSphere = new ContactSphere();
@@ -22,31 +21,17 @@ export class Contact{
             'https://github.com/ShibutElizabeth/',
             'mailto:ellis.shybut@gmail.com',
             'https://wa.me/48796789201'
-        ]
-        const onMouseEnter = (i) => {
-            const tl = gsap.timeline();
-            tl.fromTo(this.spans[i], {
-                transform: 'scaleX(0)',
-                transformOrigin: 'left center',
-            }, {
-                transform: 'scaleX(1)',
-                duration: 0.2,
-            }).fromTo(this.spans[i], {
-                transform: 'scaleX(1)',
-                transformOrigin: 'right center',
-            }, {
-                transform: 'scaleX(0)',
-                duration: 0.2,
-            });
-        }
+        ];
+
         const onMouseClick = (e, i) => {
             e.preventDefault();
             window.open(refs[i], "_blank");
-        }
+        };
+
         this.links.forEach((link, i) => {
             link.addEventListener('mouseenter', () => this.setItemHover(link));
             link.addEventListener('click', (e) => onMouseClick(e, i));
-        })
+        });
     }
 
     initContactTimeline(){
@@ -59,6 +44,7 @@ export class Contact{
                 ease: 'power1.ease',
             });
         };
+
         const black = () => {
             gsap.fromTo(document.body, {
                 backgroundColor: '#dedede',
@@ -68,6 +54,7 @@ export class Contact{
                 ease: 'power1.ease',
             });
         };
+
         const links = () => {
             gsap.fromTo(this.linksInside, {
                 transform: 'translateY(102%)',
@@ -76,7 +63,8 @@ export class Contact{
                 duration: 0.3,
                 ease: 'power1.ease',
             });
-        }
+        };
+        
         const tl = gsap.timeline();
         tl.to(document.body, {
             scrollTrigger: {

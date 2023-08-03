@@ -1,16 +1,16 @@
 import { gsap } from "gsap";
 import { ScrollTrigger, ScrollToPlugin } from "gsap/all";
-import { Skills } from "./Stories/Skills.class";
-import debounce from "./lib/debounce";
+import { Skills } from "../Stories/Skills.class";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
-export class Animations{
+export class Hero{
     constructor(){
-        this.names = document.querySelectorAll('.js-name');
-        this.heroMask = document.querySelector('.hero_mask');
+        this.names = document.querySelectorAll('.js-hero-name');
+        this.heroMask = document.querySelector('.js-hero-mask');
         this.mouseScroll = document.querySelector('.js-mouse-scroll');
         this.mouseClick = document.querySelector('.js-mouse-click');
+        this.container = document.querySelector('#skills-container');
         this.maskMouseMove = () => {};
         this.initFirstTimeline();
         this.initMaskTransition();
@@ -89,7 +89,7 @@ export class Animations{
             width: '90vw',
             height: '90vh',
             scrollTrigger: {
-                trigger: '#skills-container',
+                trigger: this.container,
                 start: 'top 90%',
                 end: 'top 30%',
                 scrub: 1
@@ -99,7 +99,7 @@ export class Animations{
             opacity: 0,
             duration: 0.1,
             scrollTrigger: {
-                trigger: '#skills-container',
+                trigger: this.container,
                 start: 'top 90%',
                 end: 'top 85%',
                 scrub: 1
@@ -109,7 +109,7 @@ export class Animations{
             opacity: 1,
             duration: 0.8,
             scrollTrigger: {
-                trigger: '#skills-container',
+                trigger: this.container,
                 start: 'top 40%',
                 end: 'top 35%',
                 scrub: 1
@@ -119,92 +119,11 @@ export class Animations{
             opacity: 0,
             duration: 0.1,
             scrollTrigger: {
-                trigger: '#skills-container',
+                trigger: this.container,
                 start: 'top 5%',
                 end: 'top top',
                 scrub: 1
             }
         })
     }
-
-    initMaskHover(){
-        const self = this.heroMask;
-        let hover = false;
-
-        const onHover = (x, y) => {
-            gsap.to(self, {
-                x: x * 0.15,
-                y: y * 0.15,
-                // scale: 0.9,
-                duration: 0.4,
-                ease: 'power2.easeOut',
-            });
-        }
-
-        const onLeave = () => {
-            gsap.to(self, {
-              x: 0,
-              y: 0,
-            //   scale: 1,
-              duration: 0.6,
-              ease: 'elastic.easeOut.config(1.2, 0.4)',
-            });
-        }
-
-        const maskMouseMove = (e) => {
-            // cursor
-            const mouse = {
-                x: e.clientX,
-                y: e.clientY,
-            };
-  
-            const offset = self.getBoundingClientRect();
-            // size
-            const {
-                width
-            } = offset;
-            const {
-                height
-            } = offset;
-  
-  
-            const elPos = {
-                x: offset.left + width / 2,
-                y: offset.top + height / 2
-            };
-  
-            // comparaison
-            const x = mouse.x - elPos.x;
-            const y = mouse.y - elPos.y;
-  
-            // dist
-            const dist = Math.sqrt(x * x + y * y);
-  
-            // mutex hover
-            let mutHover = false;
-  
-            // anim
-            if (dist < width*2 && dist < height*2) {
-                mutHover = true;
-            if (!hover) {
-                hover = true;
-            }
-            debounce(onHover(x, y), 100);
-
-             // reset
-            if (!mutHover && hover) {
-                console.log('leave')
-                debounce(onLeave(), 100);
-                hover = false;
-            }
-        }
-      };
-
-      this.maskMouseMove = maskMouseMove;
-
-      window.addEventListener("mousemove", maskMouseMove)
-
-
-    };
-  
 }

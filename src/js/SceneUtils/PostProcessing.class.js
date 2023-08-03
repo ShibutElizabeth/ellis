@@ -1,9 +1,10 @@
-//https://jsfiddle.net/prisoner849/jm0vb71c/, https://discourse.threejs.org/t/selective-bloom-parts-of-a-single-geometry/28683
-// https://stackoverflow.com/questions/67014085/threejs-selective-bloom-for-specific-parts-of-one-object-using-emission-map
-//https://github.com/vanruesc/postprocessing
+import {
+    WebGLRenderTarget, 
+    LinearFilter,
+    RGBAFormat,
+    sRGBEncoding,
 
-
-import * as THREE from 'three';
+} from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';  
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 
@@ -20,24 +21,20 @@ export default class PostProcessing
 
         this.update = function update() {}
 
-        // Wait for resources
-        // this.resources.on('ready', () =>
-        // {
-            this.setRenderTarget();
-            this.setPasses();
-        // })
+        this.setRenderTarget();
+        this.setPasses();
     }
     setRenderTarget()
     {
-        this.renderTarget = new THREE.WebGLRenderTarget
+        this.renderTarget = new WebGLRenderTarget
         (
             800,
             600,
             {
-                minFilter: THREE.LinearFilter,
-                magFilter: THREE.LinearFilter,
-                format: THREE.RGBAFormat,
-                encoding: THREE.sRGBEncoding
+                minFilter: LinearFilter,
+                magFilter: LinearFilter,
+                format: RGBAFormat,
+                encoding: sRGBEncoding
             }
         )
     }
@@ -60,14 +57,14 @@ export default class PostProcessing
     enableUpdate()
     {
         this.update = function update() {
-            {this.finalComposer.render()}
+            { this.finalComposer.render() }
         }
     }
 
     resize()
     {
-        if(this.finalComposer) {this.finalComposer.setSize(this.sizes.width, this.sizes.height)}
-        if(this.finalComposer) {this.finalComposer.setPixelRatio(Math.min(this.sizes.width / this.sizes.height, 2))}
+        if(this.finalComposer) { this.finalComposer.setSize(this.sizes.width, this.sizes.height) }
+        if(this.finalComposer) { this.finalComposer.setPixelRatio(Math.min(this.sizes.width / this.sizes.height, 2)) }
 
     }
 }
