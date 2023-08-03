@@ -11,10 +11,12 @@ export class About{
         this.photo = document.querySelector('.js-about-photo');
         this.img = this.photo.querySelector('img');
         this.exps = document.querySelectorAll('.js-exp');
+        this.text = this.section.querySelector('.js-about-text');
         this.initTextsAnimation();  
         this.setItemHover(); 
         this.initExpsTimeline();
         this.initItemParallax();
+        this.initDescriptionAnimation();
     }
 
     initTextsAnimation(){
@@ -40,6 +42,29 @@ export class About{
                 start: 'top 90%',
                 end: '+=120%',
                 scrub: 1,
+            }
+        });
+    }
+
+    initDescriptionAnimation(){
+        const show = () => {
+            gsap.fromTo(this.text, {
+                opacity: 0,
+                y: 100,
+            },{
+                opacity: 1,
+                y: 0,
+                duration: 0.3,
+                ease: 'power1.easeIn',
+            });
+        }
+
+        const tl = gsap.timeline();
+        tl.to(this.text, {
+            onStart: () => show(),
+            scrollTrigger: {
+                trigger: this.text,
+                start: 'top 90%',
             }
         });
     }

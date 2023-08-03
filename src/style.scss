@@ -155,6 +155,10 @@ p{
     transform: translateX(-50%);
     opacity: 0;
     z-index: 10;
+
+    &-click{
+        bottom: 33vh;
+    }
 }
 
 .hero{
@@ -204,7 +208,7 @@ p{
             position: relative;
             margin-top: -10vh;
             margin-left: 15vh;
-            width: 23vw;
+            width: 17vw;
             height: fit-content;
             color: $dark;
             opacity: 0;
@@ -346,12 +350,13 @@ p{
 
     &__text{
         color: $white;
-        opacity: 1;
+        opacity: 0;
         margin: 25vh auto 5vh;
         font-size: 18px;
         font-weight: 300;
         position: relative;
-        width: 30vw;
+        width: 37vw;
+        text-align: center;
         font-style: italic;
     }
 }
@@ -573,15 +578,21 @@ p{
         cursor: pointer;
         mix-blend-mode: initial;
 
-        // transform: translate(-50%, -50%);
-
         p{
             color: $dark;
-            font-size: 30px;
+            font-size: 34px;
             font-weight: 400;
             opacity: 1;
             line-height: 1.2 !important;
-            mix-blend-mode: difference;
+            @include desktop-l{
+                font-size: 32px;
+            }
+            @include desktop-m{
+                font-size: 30px;
+            }
+            @include desktop-s{
+                font-size: 28px;
+            }
         }
 
         span{
@@ -613,6 +624,35 @@ p{
         &:nth-child(4){
             top: 85vh;
             right: 18vw;
+        }
+    }
+
+    &__mark{
+        position: absolute;
+        top: 50vh;
+        transform: translateY(-50%);
+        left: 5vw;
+        color: $dark;
+        font-size: 28px;
+        font-style: italic;
+        font-weight: 400;
+        opacity: 1;
+        line-height: 1.2;
+
+        &-cv{
+            right: 5vw;
+            left: auto;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        @include desktop-l{
+            font-size: 24px;
+        }
+        @include desktop-m{
+            font-size: 21px;
+        }
+        @include desktop-s{
+            font-size: 19px;
         }
     }
 }

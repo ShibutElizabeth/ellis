@@ -54,7 +54,10 @@ export default class RayCaster
             } else {
                 this.touchedPoints = [];
             }
-        })
+        });
+
+        this.story.controller.hide(7);
+        this.objectsToTest[7].material.color.set(0xc8e3bf);
 
     }
     click(cursor)
@@ -100,6 +103,8 @@ export default class RayCaster
                     this.story.controller.hide(8);
                     break;
             }
+        } else {
+            this.story.controller.hide(-1);
         }
     }
 }

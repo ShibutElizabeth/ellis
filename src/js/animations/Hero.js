@@ -37,16 +37,19 @@ export class Hero{
             duration: 0.5,
             ease: 'power1.easeOut',
             transformOrigin: 'right bottom',
-            onComplete: () => this.initSkills(),
+            onComplete: () => {
+                this.initSkills();
+                this.initMouseScrollAnim()
+            },
         })
-        .fromTo(this.mouseScroll, {
-            opacity: 0,
-        }, {
-            opacity: 1,
-            delay: 1.5,
-            duration: 0.8,
-            onComplete: () => this.initMouseScrollAnim(),
-        });
+        // .fromTo(this.mouseScroll, {
+        //     opacity: 0,
+        // }, {
+        //     opacity: 1,
+        //     delay: 1.5,
+        //     duration: 0.8,
+        //     onComplete: () => ,
+        // });
     }
 
     initMouseScrollAnim(){
@@ -62,11 +65,19 @@ export class Hero{
     }
 
     hideMouse(element){
-        const tl = gsap.timeline();
-        tl.fromTo(element, {
+        gsap.fromTo(element, {
             opacity: 1,
         }, {
             opacity: 0,
+            duration: 0.2,
+        });
+    }
+
+    showMouse(element){
+        gsap.fromTo(element, {
+            opacity: 0,
+        }, {
+            opacity: 1,
             duration: 0.2,
         });
     }
@@ -96,34 +107,29 @@ export class Hero{
             }
         })
         .to(this.mouseScroll, {
-            opacity: 0,
-            duration: 0.1,
+            delay: 1.5,
             scrollTrigger: {
                 trigger: this.container,
-                start: 'top 90%',
-                end: 'top 85%',
-                scrub: 1
+                start: 'top 110%',
+                end: 'top 90%',
+                scrub: 1,
+                onEnter: () => this.showMouse(this.mouseScroll),
+                onEnterBack: () => this.showMouse(this.mouseScroll),
+                onLeave: () => this.hideMouse(this.mouseScroll),
+                onLeaveBack: () => this.hideMouse(this.mouseScroll),
             }
         })
         .to(this.mouseClick, {
-            opacity: 1,
-            duration: 0.8,
             scrollTrigger: {
                 trigger: this.container,
                 start: 'top 40%',
-                end: 'top 35%',
-                scrub: 1
+                end: 'top 10%',
+                scrub: 1,
+                onEnter: () => this.showMouse(this.mouseClick),
+                onLeave: () => this.hideMouse(this.mouseClick),
+                onEnterBack: () => this.showMouse(this.mouseClick),
+                onLeaveBack: () => this.hideMouse(this.mouseClick),
             }
-        })
-        .to(this.mouseClick, {
-            opacity: 0,
-            duration: 0.1,
-            scrollTrigger: {
-                trigger: this.container,
-                start: 'top 5%',
-                end: 'top top',
-                scrub: 1
-            }
-        })
+        });
     }
 }

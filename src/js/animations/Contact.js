@@ -10,6 +10,7 @@ export class Contact{
         this.section = document.querySelector('.js-contact');
         this.links = document.querySelectorAll('.js-contact-link');
         this.linksInside = document.querySelectorAll('.js-contact-inside');
+        this.cv = document.querySelector('.js-contact-cv');
         this.initContactTimeline();
         this.linksOnMouseHover();
         this.contactSphere = new ContactSphere();
@@ -20,7 +21,8 @@ export class Contact{
             'https://www.linkedin.com/in/elizabeth-shibut-46a924213/',
             'https://github.com/ShibutElizabeth/',
             'mailto:ellis.shybut@gmail.com',
-            'https://wa.me/48796789201'
+            'https://wa.me/48796789201',
+            '../../../Elizabeth_Shibut_CV.pdf'
         ];
 
         const onMouseClick = (e, i) => {
@@ -28,10 +30,18 @@ export class Contact{
             window.open(refs[i], "_blank");
         };
 
+        // const cvOnMouseClick = (e) => {
+        //   e.preventDefault();
+        //   window.open(refs[i], "_blank");
+        // }
+
         this.links.forEach((link, i) => {
             link.addEventListener('mouseenter', () => this.setItemHover(link));
             link.addEventListener('click', (e) => onMouseClick(e, i));
         });
+
+        this.cv.addEventListener('mouseenter', () => this.setItemHover(link));
+        this.cv.addEventListener('click', (e) => onMouseClick(e, 4));
     }
 
     initContactTimeline(){
