@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { ScrollTrigger, ScrollToPlugin } from "gsap/all";
 import RayCaster from '../../SceneUtils/RayCaster.class';
+import { isMobileDevice } from '../../lib/utils';
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
@@ -9,6 +10,7 @@ export default class SkillsController
     constructor(_story)
     {
         // Setup
+        this.isMobile = isMobileDevice();
         this.story = _story;
         this.camera = this.story.camera;
         this.config = this.story.config;
@@ -141,16 +143,50 @@ export default class SkillsController
     }
 
     cameraTransition(){
+        let position = {
+            x: 6, 
+            y: 6,
+            z: 15,
+            x2: 9.6,
+            y2: 6.5,
+            z2: 1
+        };
+        let controlsPos = {
+            x: -5,
+            y: 1,
+            z: 1,
+            x2: -1.15,
+            y2: 0.6,
+            z2: 0.18
+        }
+        if(this.isMobile){
+            position = {
+                x: 2, 
+                y: 10,
+                z: 15,
+                x2: 9.6,
+                y2: 8,
+                z2: 15
+            };
+            controlsPos = {
+                x: 0,
+                y: 1,
+                z: 1,
+                x2: 0,
+                y2: 4,
+                z2: -1
+            }
+        };
         const camTL = gsap.timeline();
         camTL
         .fromTo(this.camera.instance.position, {
-            x: 6,
-            y: 6,
-            z: 15,
+            x: position.x,
+            y: position.y,
+            z: position.z,
         }, {
-            x: 9.6,
-            y: 6.5,
-            z: 1,
+            x: position.x2,
+            y: position.y2,
+            z: position.z2,
             scrollTrigger: {
                 trigger: this.container,
                 start: 'top 90%',
@@ -159,13 +195,13 @@ export default class SkillsController
             }
         })
         .fromTo(this.camera.controls.target, {
-            x: -5,
-            y: 1,
-            z: 1,
+            x: controlsPos.x,
+            y: controlsPos.y,
+            z: controlsPos.z,
         }, {
-            x: -1.15,
-            y: 0.6,
-            z: 0.18,
+            x: controlsPos.x2,
+            y: controlsPos.y2,
+            z: controlsPos.z2,
             scrollTrigger: {
                 trigger: this.container,
                 start: 'top 90%',

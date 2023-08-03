@@ -1,11 +1,13 @@
 import { gsap } from "gsap";
 import { ScrollTrigger, ScrollToPlugin } from "gsap/all";
 import debounce from "../lib/debounce";
+import { isMobileDevice } from "../lib/utils";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 export class About{
     constructor(){
+        this.isMobile = isMobileDevice();
         this.section = document.querySelector('.js-about');
         this.headers = document.querySelectorAll('.js-about-move');
         this.photo = document.querySelector('.js-about-photo');
@@ -13,7 +15,7 @@ export class About{
         this.exps = document.querySelectorAll('.js-exp');
         this.text = this.section.querySelector('.js-about-text');
         this.initTextsAnimation();  
-        this.setItemHover(); 
+        if(!this.isMobile) this.setItemHover(); 
         this.initExpsTimeline();
         this.initItemParallax();
         this.initDescriptionAnimation();
@@ -204,8 +206,8 @@ export class About{
         tl.to(this.exps, {
             onStart: () => show(),
             scrollTrigger: {
-                trigger: this.photo,
-                start: 'top 80%',
+                trigger: this.isMobile ? this.exps : this.photo,
+                start: this.isMobile ? 'top 90%' : 'top 80%',
                 end: 'top 70%',
                 toggleActions: 'play none none none',
             }

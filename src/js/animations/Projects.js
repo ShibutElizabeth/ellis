@@ -7,7 +7,7 @@ export class Projects{
     constructor(){
         this.cards = document.querySelectorAll('.js-project');
         this.buttons = document.querySelectorAll('.js-project-btn');
-        this.initProjectsTimeline();
+        // this.initProjectsTimeline();
         this.initProjectsLinks();
     }
 

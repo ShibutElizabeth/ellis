@@ -1,11 +1,13 @@
 import { gsap } from "gsap";
 import { ScrollTrigger, ScrollToPlugin } from "gsap/all";
 import { Skills } from "../Stories/Skills.class";
+import { isMobileDevice } from "../lib/utils";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 export class Hero{
     constructor(){
+        this.isMobile = isMobileDevice();
         this.names = document.querySelectorAll('.js-hero-name');
         this.heroMask = document.querySelector('.js-hero-mask');
         this.mouseScroll = document.querySelector('.js-mouse-scroll');
@@ -41,15 +43,7 @@ export class Hero{
                 this.initSkills();
                 this.initMouseScrollAnim()
             },
-        })
-        // .fromTo(this.mouseScroll, {
-        //     opacity: 0,
-        // }, {
-        //     opacity: 1,
-        //     delay: 1.5,
-        //     duration: 0.8,
-        //     onComplete: () => ,
-        // });
+        });
     }
 
     initMouseScrollAnim(){
@@ -87,13 +81,27 @@ export class Hero{
     }
 
     initMaskTransition(){
-        const sceneTL = gsap.timeline();
-        sceneTL
-        .fromTo(this.heroMask, {
+        let sizes = {
             left: '25vw',
             top: '25vh',
             width: '65vw',
             height: '65vh',
+        };
+        if(this.isMobile){
+            sizes = {
+                height: '65vh',
+                width: '88vw',
+                left: '6vw',
+                top: '25vh',
+            }
+        }
+        const sceneTL = gsap.timeline();
+        sceneTL
+        .fromTo(this.heroMask, {
+            left: sizes.left,
+            top: sizes.top,
+            width: sizes.width,
+            height: sizes.height,
         }, {
             left: '5vw',
             top: '80vh',

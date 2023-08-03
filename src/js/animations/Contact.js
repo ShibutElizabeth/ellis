@@ -25,15 +25,12 @@ export class Contact{
             '../../../Elizabeth_Shibut_CV.pdf'
         ];
 
+        console.log(refs)
+
         const onMouseClick = (e, i) => {
             e.preventDefault();
             window.open(refs[i], "_blank");
         };
-
-        // const cvOnMouseClick = (e) => {
-        //   e.preventDefault();
-        //   window.open(refs[i], "_blank");
-        // }
 
         this.links.forEach((link, i) => {
             link.addEventListener('mouseenter', () => this.setItemHover(link));

@@ -1,32 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url( 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 $light: #dedede;
 $medium: rgb(68, 69, 69);
 $dark: #141414;
 $white: #ffffff;
-
-
-@mixin phone {
-    @media (max-width: 599px) { @content; }
-}
-@mixin tablet-p {
-    @media (max-width: 600px) { @content; }
-}
-@mixin tablet-l{
-    @media (max-width: 900px) { @content; }
-}
 @mixin desktop-l {
-    @media (max-width: 1920px) { @content; }
+     @media (max-width: 1920px){
+        @content;
+    }
 }
 @mixin desktop-m {
-    @media (max-width: 1600px) { @content; }
+     @media (max-width: 1600px){
+        @content;
+    }
 }
 @mixin desktop-s {
-    @media (max-width: 1420px) { @content; }
+     @media (max-width: 1420px){
+        @content;
+    }
+}
+@mixin tablet {
+     @media (max-width: 900px){
+        @content;
+    }
+}
+@mixin phone {
+     @media (max-width: 499px){
+        @content;
+    }
 }
 
-
-body, html{
+body,
+html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -35,34 +40,38 @@ body, html{
     height: fit-content;
     background-color: $dark;
     color: $white;
-    
+
 }
 
-main{
+main {
     width: 100vw;
     height: fit-content;
     position: relative;
 }
 
-
-h2{
+h2 {
     font-size: 130px;
     text-align: left;
     margin: 0;
     padding: 0;
-
-    @include desktop-l{
+    @include desktop-l {
         font-size: 110px;
     }
-    @include desktop-m{
+    @include desktop-m {
         font-size: 95px;
     }
-    @include desktop-s{
+    @include desktop-s {
         font-size: 80px;
     }
+    @include tablet {
+        font-size: 40px;
+    }
+    // @include phone{
+    //     font-size: 30px;
+    // }
 }
 
-h4{
+h4 {
     font-size: 80px;
     font-weight: 500;
     font-style: normal;
@@ -71,19 +80,18 @@ h4{
     margin: 0;
     padding: 0;
     opacity: 0.7;
-
-    @include desktop-l{
+    @include desktop-l {
         font-size: 65px;
     }
-    @include desktop-m{
+    @include desktop-m {
         font-size: 45px;
     }
-    @include desktop-s{
+    @include desktop-s {
         font-size: 35px;
     }
 }
 
-p{
+p {
     font-size: 40px;
     color: $white;
     text-align: left;
@@ -92,24 +100,27 @@ p{
     margin: 0;
     padding: 0;
     opacity: 0.7;
-    @include desktop-l{
+    @include desktop-l {
         font-size: 30px;
     }
-    @include desktop-m{
+    @include desktop-m {
         font-size: 20px;
     }
-    @include desktop-s{
+    @include desktop-s {
         font-size: 15px;
+    }
+    @include tablet {
+        font-size: 14px;
     }
 }
 
-.section{
+.section {
     position: relative;
     width: 100vw;
     height: 100vh;
 }
 
-.name-wrapper{
+.name-wrapper {
     background-color: transparent;
     position: absolute;
     z-index: 1;
@@ -119,20 +130,20 @@ p{
     mix-blend-mode: difference;
     transform: scaleX(1.3);
 
-    .name{
+    .name {
         transform: translateY(102%);
         line-height: 0.8;
     }
 }
 
-.name-wrapper-horizontal{
+.name-wrapper-horizontal {
     z-index: 1;
     padding: 0;
     margin: 0;
     writing-mode: vertical-rl;
     text-orientation: mixed;
     mix-blend-mode: difference;
-    background-color: transparent; 
+    background-color: transparent;
     height: -moz-fit-content;
     height: fit-content;
     width: fit-content;
@@ -140,13 +151,13 @@ p{
     overflow-x: hidden;
     transform: scaleY(1.3);
 
-    .name{
+    .name {
         line-height: 0.8;
         transform: translateX(-102%);
     }
 }
 
-.mouse{
+.mouse {
     width: 5vw;
     height: auto;
     position: absolute;
@@ -155,56 +166,94 @@ p{
     transform: translateX(-50%);
     opacity: 0;
     z-index: 10;
+    @include tablet {
+        width: 12vw;
+    }
+    @include phone {
+        width: 18vw;
+    }
 
-    &-click{
+    &-click {
         bottom: 33vh;
     }
 }
 
-.hero{
+.hero {
     position: relative;
     height: 180vh;
 
-    &__mark{
+    &__mark {
         position: absolute;
         top: 58vh;
         right: 10vw;
         color: $dark;
-        font-size: 50px;
+        font-size: 60px;
         font-weight: 100;
         opacity: 0;
+        @include desktop-l {
+            font-size: 55px;
+        }
+        @include desktop-m {
+            font-size: 50px;
+        }
+        @include desktop-s {
+            font-size: 45px;
+        }
+        @include tablet {
+            font-size: 28px;
+        }
+        @include phone {
+            // font-size: 8vh;
+        }
     }
 
-    &__container{
+    &__container {
         position: relative;
         width: 100vw;
         height: 100vh;
         display: flex;
         flex-direction: column;
 
-        &_header{
+        &_header {
             background-color: transparent;
             position: absolute;
             top: 34vh;
             left: 10vw;
-            &:first-child{
+            @include tablet {
+                top: 20vh;
+                left: 14vw;
+            }
+            &:first-child {
                 top: 14.3vh;
                 left: 9.6vw;
+                @include tablet {
+                    top: 8.3vh;
+                    left: 15.6vw;
+                }
             }
         }
 
-        .skills__header{
+        .skills__header {
             top: -2vh;
             right: 0.6vw;
+            @include tablet {
+                top: 24vh;
+            }
         }
 
-        h1{
+        h1 {
             font-size: 21.296vh;
             margin: 0;
             padding: 0;
+            @include tablet {
+                font-size: 12vh;
+            }
+            @include phone {
+                font-size: 8vh;
+            }
         }
 
-        .description{
+        .description {
             position: relative;
             margin-top: -10vh;
             margin-left: 15vh;
@@ -212,8 +261,12 @@ p{
             height: fit-content;
             color: $dark;
             opacity: 0;
+            @include tablet {
+                margin-top: -15vh;
+                width: 58vw;
+            }
 
-            .line{
+            .line {
                 width: 100%;
                 height: 1px;
                 background-color: $dark;
@@ -221,48 +274,54 @@ p{
                 transform: scaleX(0);
                 transform-origin: left center;
             }
-            &__name{
+            &__name {
                 position: relative;
                 margin: 0;
                 transform: scaleX(1);
                 mix-blend-mode: normal;
 
-                h4{
+                h4 {
                     color: $dark;
                     font-weight: 700;
                     font-size: 60px;
                     margin: 0;
                     line-height: 1.1;
-                    @include desktop-l{
+                    @include desktop-l {
                         font-size: 50px;
                     }
-                    @include desktop-m{
+                    @include desktop-m {
                         font-size: 40px;
                     }
-                    @include desktop-s{
+                    @include desktop-s {
                         font-size: 30px;
+                    }
+                    @include tablet {
+                        font-size: 20px;
                     }
                 }
             }
 
-            p{
+            p {
                 color: $dark;
                 font-weight: 300;
                 font-size: 28px;
-                @include desktop-l{
+                @include desktop-l {
                     font-size: 22px;
                 }
-                @include desktop-m{
+                @include desktop-m {
                     font-size: 18px;
                 }
-                @include desktop-s{
+                @include desktop-s {
                     font-size: 15px;
+                }
+                @include tablet {
+                    font-size: 9px;
                 }
             }
         }
     }
 
-    &__mask{
+    &__mask {
         background-color: $light;
         width: 65vw;
         height: 65vh;
@@ -270,106 +329,166 @@ p{
         top: 25vh;
         left: 25vw;
         z-index: 0;
+        @include tablet {
+            height: 65vh;
+            width: 88vw;
+            left: 6vw;
+        }
     }
 
 }
 
-.about{
+.about {
     position: relative;
     width: 100vw;
     height: 170vh;
     background-color: transparent;
     overflow-x: hidden;
 
-    &__photo{
-        position: absolute;
-        top: 48vh;
-        left: 5vw;
-        width: 33vw;
-        height: auto;
-        overflow: hidden;
-        z-index: 2;
-
-        img{
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            transform: scale(1.1) translateY(-20px);
-        }
-    }
-
-    &__container{
-        gap: 8vh;
-        width: 45vw;
-        height: -moz-fit-content;
-        height: fit-content;
-        margin-left: 46vw;
-        display: flex;
-        flex-direction: column;
+    &__container {
         position: relative;
+        margin: 0 auto;
+        width: 90vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        @include tablet {
+            flex-direction: column;
+            gap: 7vh;
+        }
 
-        .exp{
+        &_photo {
+            position: relative;
+            width: 33vw;
+            height: auto;
+            overflow: hidden;
+            z-index: 2;
+            @include tablet {
+                width: 75vw;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                transform: scale(1.1) translateY(-20px);
+            }
+        }
+
+        &_block {
+            gap: 8vh;
+            width: 45vw;
+            height: -moz-fit-content;
+            height: fit-content;
             display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 2vw;
-            opacity: 0;
+            flex-direction: column;
+            position: relative;
+            @include tablet {
+                flex-direction: row;
+                gap: 2vh;
+                width: 75vw;
+                flex-wrap: wrap;
+            }
 
-            &__icon-wrapper{
+            .exp {
                 display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
                 align-items: center;
-                justify-content: center;
-                min-width: 5vw;
+                gap: 2vw;
+                opacity: 0;
+                @include tablet {
+                    width: 82vw;
+                }
 
-                &_icon{
-                    width: 4vw;
-                    height: auto;
-    
-                    path{
-                        stroke: $white;
-                        fill: $white;
-                        stroke-width: 3px;
+                &__icon-wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-width: 5vw;
+                    @include tablet {
+                        min-width: 10vw;
+                    }
+
+                    &_icon {
+                        width: 4vw;
+                        height: auto;
+                        @include tablet {
+                            min-width: 9vw;
+                        }
+
+                        path {
+                            stroke: $white;
+                            fill: $white;
+                            stroke-width: 3px;
+                        }
                     }
                 }
-            }
 
-            &__description{
-                color: $white;
-                font-weight: 300;
-                font-size: 18px;
-                opacity: 1;
+                &__description {
+                    color: $white;
+                    font-weight: 300;
+                    font-size: 24px;
+                    opacity: 1;
 
-                span{
-                    font-style: italic;
+                    span {
+                        font-style: italic;
+                    }
+                    @include desktop-l {
+                        font-size: 22px;
+                    }
+                    @include desktop-m {
+                        font-size: 20px;
+                    }
+                    @include desktop-s {
+                        font-size: 18px;
+                    }
+                    @include tablet {
+                        font-size: 14px;
+                    }
                 }
-            }
 
+            }
         }
     }
 
-    &__text{
+    &__text {
         color: $white;
         opacity: 0;
-        margin: 25vh auto 5vh;
-        font-size: 18px;
+        margin: 20vh auto 5vh;
+        font-size: 24px;
         font-weight: 300;
         position: relative;
         width: 37vw;
         text-align: center;
         font-style: italic;
+        @include desktop-l {
+            font-size: 22px;
+        }
+        @include desktop-m {
+            font-size: 20px;
+        }
+        @include desktop-s {
+            font-size: 18px;
+        }
+        @include tablet {
+            width: 54vw;
+            margin: 12vh auto 5vh;
+            font-size: 14px;
+        }
     }
 }
 
-.move{
+.move {
     width: 100vw;
     height: 50vh;
     position: relative;
-    @include phone{
+    @include tablet {
         height: 15vh;
     }
 
-    &__text{
+    &__text {
         position: relative;
         font-size: 200px;
         font-style: bold;
@@ -378,34 +497,38 @@ p{
         white-space: nowrap;
         margin: 0;
         line-height: 1;
-
-        @include desktop-l{
+        @include desktop-l {
             font-size: 180px;
         }
-        @include desktop-m{
+        @include desktop-m {
             font-size: 160px;
         }
-        @include desktop-s{
+        @include desktop-s {
             font-size: 140px;
         }
-        @include phone{
+        @include tablet {
+            font-size: 48px;
+        }
+        @include phone {
             font-size: 30px;
         }
     }
 }
 
-
-.projects{
+.projects {
     position: relative;
     height: 100vh;
+    @include tablet {
+        height: 225vh;
+    }
 
-    &__gallery{
+    &__gallery {
         position: absolute;
         width: 100%;
         height: 100%;
         z-index: 2;
 
-        &_card{
+        &_card {
             position: absolute;
             width: 26vw;
             height: 26vw;
@@ -421,64 +544,100 @@ p{
             display: flex;
             align-items: center;
             justify-content: center;
-
-            &:nth-child(1){
+            &:nth-child(1) {
                 top: 4vh;
                 left: 9vw;
                 transform: rotate(10deg) translateX(6vw);
             }
-            &:nth-child(2){
+            &:nth-child(2) {
                 top: 1vh;
                 left: 38vw;
                 transform: rotate(-6deg) translateX(-2vw);
             }
-            &:nth-child(3){
+            &:nth-child(3) {
                 top: 4vh;
                 right: 7vw;
                 transform: rotate(8deg) translateX(-6vw);
                 z-index: 2;
             }
-            &:nth-child(4){
+            &:nth-child(4) {
                 top: 47vh;
                 left: 20vw;
                 rotate: -7deg;
                 transform: rotate(-7deg) translateX(3vw);
             }
-            &:nth-child(5){
+            &:nth-child(5) {
                 top: 48vh;
                 left: 52vw;
                 transform: rotate(4deg) translateX(-3vw);
             }
+            @include tablet {
+                width: 63vw;
+                height: 66vw;
+                &:nth-child(1) {
+                    top: 0;
+                    left: 9vw;
+                    transform: rotate(-6deg)translateX(-2vw);
+                }
+                &:nth-child(2) {
+                    top: 42vh;
+                    left: 31vw;
+                    transform: rotate(10deg)translateX(-2vw);
+                }
+                &:nth-child(3) {
+                    z-index: 2;
+                    top: 82vh;
+                    left: 17vw;
+                    transform: rotate(-4deg)translateX(-6vw);
+                }
+                &:nth-child(4) {
+                    top: 127vh;
+                    left: 20vw;
+                    transform: rotate(10deg)translateX(3vw);
+                    z-index: 3;
+                }
+                &:nth-child(5) {
+                    top: 170vh;
+                    left: 15vw;
+                    z-index: 4;
+                    transform: rotate(-6deg)translateX(-3vw);
+                }
+            }
 
-            .box{
+            .box {
                 width: 22vw;
                 height: 22vw;
                 display: flex;
                 flex-direction: column;
                 gap: 7vh;
+                @include tablet {
+                    width: 48vw;
+                    height: 55vw;
+                    gap: 6vh;
+                }
 
-                &__header{
+                &__header {
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
                     align-items: center;
 
-                    &_company{
+                    &_company {
                         font-size: 27px;
                         color: $white;
                         font-weight: 300;
-                        @include desktop-l{
+                        @include desktop-l {
                             font-size: 23px;
                         }
-                        @include desktop-m{
+                        @include desktop-m {
                             font-size: 20px;
                         }
-                        @include desktop-s{
+                        @include desktop-s {
                             font-size: 17px;
                         }
                     }
 
-                    &_button{
+                    &_button {
                         color: $white;
                         border: 1px solid $white;
                         justify-content: center;
@@ -490,23 +649,25 @@ p{
                         display: flex;
                         cursor: pointer;
                         transition: all 0.3s ease;
-                        @include desktop-l{
+                        @include desktop-l {
                             font-size: 18px;
                         }
-                        @include desktop-m{
+                        @include desktop-m {
                             font-size: 17px;
                         }
-                        @include desktop-s{
+                        @include desktop-s {
                             font-size: 15px;
                         }
-
-                        &:hover{
+                        @include tablet{
+                            padding: 1vh 6vw;
+                        }
+                        &:hover {
                             color: $medium;
                             background-color: $white;
                         }
                     }
                 }
-                &__name{
+                &__name {
                     font-size: 50px;
                     color: $white;
                     font-weight: 400;
@@ -514,45 +675,48 @@ p{
                     text-transform: uppercase;
                     display: flex;
                     justify-content: center;
-                    @include desktop-l{
+                    @include desktop-l {
                         font-size: 44px;
                     }
-                    @include desktop-m{
+                    @include desktop-m {
                         font-size: 40px;
                     }
-                    @include desktop-s{
+                    @include desktop-s {
                         font-size: 36px;
+                    }
+                    @include tablet {
+                        font-size: 29px;
                     }
                 }
 
-                &__description{
+                &__description {
                     font-size: 16px;
                     color: $white;
                     font-weight: 300;
                     font-style: italic;
-                    @include desktop-l{
+                    @include desktop-l {
                         font-size: 14px;
                     }
-                    @include desktop-m{
+                    @include desktop-m {
                         font-size: 12px;
                     }
-                    @include desktop-s{
+                    @include desktop-s {
                         font-size: 11px;
                     }
 
-                    a{
+                    a {
                         font-size: 16px;
                         color: $white;
                         font-weight: 400;
                         font-style: italic;
                         text-decoration: none;
-                        @include desktop-l{
+                        @include desktop-l {
                             font-size: 14px;
                         }
-                        @include desktop-m{
+                        @include desktop-m {
                             font-size: 12px;
                         }
-                        @include desktop-s{
+                        @include desktop-s {
                             font-size: 11px;
                         }
                     }
@@ -564,11 +728,11 @@ p{
 
 }
 
-.contact{
+.contact {
     position: relative;
     // background-color: #dd8ec3;
 
-    &__link{
+    &__link {
         position: absolute;
         top: auto;
         left: auto;
@@ -577,25 +741,25 @@ p{
         opacity: 1;
         cursor: pointer;
         mix-blend-mode: initial;
-
-        p{
+        
+        p {
             color: $dark;
             font-size: 34px;
             font-weight: 400;
             opacity: 1;
             line-height: 1.2 !important;
-            @include desktop-l{
+            @include desktop-l {
                 font-size: 32px;
             }
-            @include desktop-m{
+            @include desktop-m {
                 font-size: 30px;
             }
-            @include desktop-s{
+            @include desktop-s {
                 font-size: 28px;
             }
         }
 
-        span{
+        span {
             background-color: $white;
             width: 100%;
             height: 100%;
@@ -605,29 +769,25 @@ p{
             transform: scaleX(0);
             transform-origin: left center;
         }
-
-        &:nth-child(1){
+        &:nth-child(1) {
             top: 13vh;
             left: 18vw;
         }
-
-        &:nth-child(2){
+        &:nth-child(2) {
             top: 13vh;
             right: 20vw;
         }
-        
-        &:nth-child(3){
+        &:nth-child(3) {
             top: 85vh;
             left: 20vw;
         }
-
-        &:nth-child(4){
+        &:nth-child(4) {
             top: 85vh;
             right: 18vw;
         }
     }
 
-    &__mark{
+    &__mark {
         position: absolute;
         top: 50vh;
         transform: translateY(-50%);
@@ -639,25 +799,34 @@ p{
         opacity: 1;
         line-height: 1.2;
 
-        &-cv{
+        @include desktop-l {
+            font-size: 24px;
+        }
+        @include desktop-m {
+            font-size: 21px;
+        }
+        @include desktop-s {
+            font-size: 19px;
+        }
+        @include tablet{
+            writing-mode: vertical-rl;
+            transform: rotateZ(180deg) translateY(50%);
+        }
+
+        &-cv {
             right: 5vw;
             left: auto;
             text-decoration: underline;
             cursor: pointer;
-        }
-        @include desktop-l{
-            font-size: 24px;
-        }
-        @include desktop-m{
-            font-size: 21px;
-        }
-        @include desktop-s{
-            font-size: 19px;
+
+            @include tablet{
+                transform: rotateZ(0deg) translateY(-50%);
+            }
         }
     }
 }
 
-.canvas-container{
+.canvas-container {
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -665,17 +834,19 @@ p{
     top: 0;
     left: 0;
 
-    &_contact{
+    &_contact {
         width: 30vw;
         height: 30vw;
         top: 50vh;
         left: 50vw;
         transform: translate(-50%, -50%);
+        @include tablet{
+            width: 40vw;
+            height: 40vw;
+        }
     }
-    canvas{
+    canvas {
         width: 100%;
         height: 100%;
     }
 }
-
-
