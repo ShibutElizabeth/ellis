@@ -59,6 +59,9 @@ export class Story{
         this.camera.resize();
         this.renderer.resize();
         this.postProcessing.resize();
+        if(this.controller){
+            this.controller.resize();
+        }
     }
 
     update()

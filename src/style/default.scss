@@ -21,6 +21,11 @@ $tablet: 900px;
         @content;
     }
 }
+@mixin desktop-xs {
+    @media only screen and (max-width: 1200px){
+        @content;
+    }
+}
 @mixin tablet {
     @media only screen and (max-width: 920px){
         @content;
@@ -274,11 +279,17 @@ p {
             font-size: 19.4vh;
             margin: 0;
             padding: 0;
+            @include desktop-m{
+                font-size: 18.4vh;
+            }
             @include tablet {
-                font-size: 12vh;
+                font-size: 10vh;
             }
             @include phone {
                 font-size: 8vh;
+            }
+            @include phone-xs {
+                font-size: 6.5vh;
             }
         }
 
@@ -313,17 +324,20 @@ p {
                 h4 {
                     color: $dark;
                     font-weight: 700;
-                    font-size: 60px;
+                    font-size: 45px;
                     margin: 0;
                     line-height: 1.1;
                     @include desktop-l {
-                        font-size: 50px;
+                        font-size: 40px;
                     }
                     @include desktop-m {
-                        font-size: 40px;
+                        font-size: 35px;
                     }
                     @include desktop-s {
                         font-size: 30px;
+                    }
+                    @include desktop-xs {
+                        font-size: 25px;
                     }
                     @include tablet {
                         font-size: 34px;
@@ -337,15 +351,18 @@ p {
             p {
                 color: $dark;
                 font-weight: 300;
-                font-size: 28px;
+                font-size: 20px;
                 @include desktop-l {
-                    font-size: 22px;
+                    font-size: 17px;
                 }
                 @include desktop-m {
-                    font-size: 18px;
+                    font-size: 15px;
                 }
                 @include desktop-s {
-                    font-size: 15px;
+                    font-size: 14px;
+                }
+                @include desktop-xs {
+                    font-size: 12px;
                 }
                 @include tablet {
                     font-size: 15px;
@@ -692,6 +709,9 @@ p {
                 display: flex;
                 flex-direction: column;
                 gap: 7vh;
+                @include desktop-xs {
+                    gap: 4vh;
+                }
                 @include tablet {
                     width: 48vw;
                     height: 55vw;
@@ -700,7 +720,7 @@ p {
                 @include phone{
                     width: 58vw;
                     height: 35vh;
-                    gap: 5vh;
+                    gap: 4vh;
                 }
 
                 &__header {
@@ -721,6 +741,9 @@ p {
                         }
                         @include desktop-s {
                             font-size: 17px;
+                        }
+                        @include desktop-xs {
+                            font-size: 15px;
                         }
                         @include tablet {
                             font-size: 28px;
@@ -753,6 +776,9 @@ p {
                         }
                         @include desktop-s {
                             font-size: 15px;
+                        }
+                        @include desktop-xs {
+                            font-size: 13px;
                         }
                         @include tablet {
                             padding: 1vh 6vw;
@@ -788,6 +814,9 @@ p {
                     }
                     @include desktop-s {
                         font-size: 36px;
+                    }
+                    @include desktop-xs {
+                        font-size: 28px;
                     }
                     @include tablet {
                         font-size: 44px;

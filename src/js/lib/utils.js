@@ -1,3 +1,3 @@
 export function isMobileDevice () {
-    return ( ( window.innerWidth <= 900 ) && ( window.innerHeight <= 1200 ) );
+    return ( ( window.innerWidth <= 900 ) && ( window.innerHeight <= 1300 ) );
 }

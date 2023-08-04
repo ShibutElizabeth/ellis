@@ -303,6 +303,13 @@ export default class SkillsController
         });
     }
 
+    resize(){
+        this.isMobile = isMobileDevice();
+        if(this.isMobile){
+            ScrollTrigger.refresh();
+        }
+    }
+
     sleep(ms) 
     {
         return new Promise(resolve => setTimeout(resolve, ms));
