@@ -115,8 +115,10 @@ export default class SkillsController
         const sceneTL = gsap.timeline();
         sceneTL.fromTo('#canvas-container-skills', {
             y: 0,
+            x: 0,
         }, {
-            y: '60vh',
+            x: this.isMobile ? '0' : '-5vw',
+            y: this.isMobile ? '75vh' :'70vh',
             scrollTrigger: {
                 trigger: this.container,
                 start: 'top 90%',
@@ -144,37 +146,37 @@ export default class SkillsController
 
     cameraTransition(){
         let position = {
-            x: 6, 
-            y: 6,
-            z: 15,
-            x2: 9.6,
-            y2: 6.5,
-            z2: 1
+            x: 5, 
+            y: 4,
+            z: 12,
+            x2: 8.4,
+            y2: 6,
+            z2: 0.7
         };
         let controlsPos = {
             x: -5,
-            y: 1,
-            z: 1,
+            y: 0.5,
+            z: 0,
             x2: -1.15,
-            y2: 0.6,
+            y2: -1.25,
             z2: 0.18
         }
         if(this.isMobile){
             position = {
-                x: 2, 
-                y: 10,
-                z: 15,
-                x2: 9.6,
-                y2: 8,
-                z2: 15
+                x: 0, 
+                y: 5,
+                z: 10,
+                x2: 5,
+                y2: 12,
+                z2: 1
             };
             controlsPos = {
-                x: 0,
+                x: 1,
                 y: 1,
                 z: 1,
-                x2: 0,
-                y2: 4,
-                z2: -1
+                x2: -2,
+                y2: -3,
+                z2: 0
             }
         };
         const camTL = gsap.timeline();

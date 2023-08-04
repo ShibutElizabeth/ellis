@@ -29,8 +29,8 @@ export default class RayCaster
             const rect = container.getBoundingClientRect();
             this.touchedPoints.push(event.pointerId);
 
-            this.cursorXMin = Math.abs((event.clientX / this.sizes.width * 2 - 1) * 0.9);
-            this.cursorXMax = Math.abs((event.clientX / this.sizes.width * 2 - 1) * 1.1);
+            this.cursorXMin = Math.abs(((event.clientX - rect.left)/ this.sizes.width * 2 - 1) * 0.9);
+            this.cursorXMax = Math.abs(((event.clientX - rect.left) / this.sizes.width * 2 - 1) * 1.1);
 
             this.cursorYMin = Math.abs(((event.clientY - rect.top) / this.sizes.height * 2 - 1) * 0.9);
             this.cursorYMax = Math.abs(((event.clientY - rect.top) / this.sizes.height * 2 - 1) * 1.1);
@@ -41,7 +41,7 @@ export default class RayCaster
         window.addEventListener('pointerup', (event) => {
             const c = document.querySelector('#canvas-container-skills');
             const rect = c.getBoundingClientRect();
-            this.cursor.x = event.clientX / this.sizes.width * 2 - 1;
+            this.cursor.x = (event.clientX - rect.left) / this.sizes.width * 2 - 1;
             this.cursor.y = -((event.clientY - rect.top) / this.sizes.height) * 2 + 1;
 
             this.absX = Math.abs(this.cursor.x);

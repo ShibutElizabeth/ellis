@@ -55,6 +55,9 @@ export default class Camera
         this.controls.enableRotate = false;
         this.controls.enablePan = false;
         this.controls.enableZoom = false;
+        // this.controls.addEventListener('change', () => {
+        //     console.log(this.controls);
+        // })
     }
 
     
