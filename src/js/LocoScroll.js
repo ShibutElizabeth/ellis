@@ -1,6 +1,7 @@
 import LocomotiveScroll from "locomotive-scroll";
 import { gsap } from "gsap";
 import { ScrollTrigger, ScrollToPlugin } from "gsap/all";
+import { scaleCursor } from "./lib/utils";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
@@ -9,7 +10,7 @@ export function initScroll(){
         el: document.querySelector('[data-scroll-container]'),
         smooth: true,
     })
-    // locoScroll.on("scroll", ScrollTrigger.update());
+    locoScroll.on("scroll", () => scaleCursor(false));
     ScrollTrigger.scrollerProxy("body", {
         scrollTop(value) {
           return arguments.length

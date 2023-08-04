@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger, ScrollToPlugin } from "gsap/all";
 import debounce from "../lib/debounce";
-import { isMobileDevice } from "../lib/utils";
+import { isMobileDevice, setItemHover } from "../lib/utils";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
@@ -15,7 +15,7 @@ export class About{
         this.exps = document.querySelectorAll('.js-exp');
         this.text = this.section.querySelector('.js-about-text');
         this.initTextsAnimation();  
-        if(!this.isMobile) this.setItemHover(); 
+        if(!this.isMobile) setItemHover(this.photo); 
         this.initExpsTimeline();
         this.initItemParallax();
     }
@@ -46,79 +46,6 @@ export class About{
             }
         });
     }
-
-    setItemHover() {
-        const self = this.photo;
-        let hover = false;
-    
-        const onHover = (x, y) => {
-          gsap.to(self, {
-            x: x * 0.15,
-            y: y * 0.15,
-            scale: 1.1,
-            duration: 1,
-            ease: 'power1.easeIn',
-          });
-        };
-    
-        const onLeave = () => {
-          gsap.to(self, {
-            x: 0,
-            y: 0,
-            scale: 1,
-            duration: 1,
-            ease: 'elastic.easeOut.config(1.2, 0.4)',
-          });
-        };
-    
-        window.addEventListener("mousemove", (e) => {
-          // cursor
-          const mouse = {
-            x: e.clientX,
-            y: e.clientY,
-          };
-    
-          const offset = self.getBoundingClientRect();
-          // size
-          const {
-            width
-          } = offset;
-          const {
-            height
-          } = offset;
-    
-    
-          const elPos = {
-            x: offset.left + width / 2,
-            y: offset.top + height / 2
-          };
-    
-          // comparaison
-          const x = mouse.x - elPos.x;
-          const y = mouse.y - elPos.y;
-    
-          // dist
-          const dist = Math.sqrt(x * x + y * y);
-    
-          // mutex hover
-          let mutHover = false;
-    
-          // anim
-          if (dist < width * 0.65) {
-            mutHover = true;
-            if (!hover) {
-              hover = true;
-            }
-            debounce(onHover(x, y), 100);
-          }
-    
-          // reset
-          if (!mutHover && hover) {
-            debounce(onLeave(), 100);
-            hover = false;
-          }
-        });
-    };
 
     initItemParallax() {
         const tl = gsap.timeline();

@@ -52,6 +52,7 @@ html {
     height: fit-content;
     background-color: $dark;
     color: $white;
+    cursor: none;
 
 }
 
@@ -734,6 +735,8 @@ p {
                         font-size: 27px;
                         color: $white;
                         font-weight: 300;
+                        text-decoration: none;
+                        cursor: none;
                         @include desktop-l {
                             font-size: 23px;
                         }
@@ -767,7 +770,6 @@ p {
                         border-radius: 20px;
                         font-weight: 300;
                         display: flex;
-                        cursor: pointer;
                         transition: all 0.3s ease;
                         @include desktop-l {
                             font-size: 18px;
@@ -860,6 +862,7 @@ p {
                         font-weight: 400;
                         font-style: italic;
                         text-decoration: none;
+                        cursor: none;
                         @include desktop-l {
                             font-size: 14px;
                         }
@@ -898,7 +901,6 @@ p {
         bottom: auto;
         right: auto;
         opacity: 1;
-        cursor: pointer;
         mix-blend-mode: initial;
         
         p {
@@ -994,7 +996,7 @@ p {
             right: 5vw;
             left: auto;
             text-decoration: underline;
-            cursor: pointer;
+            // cursor: pointer;
 
             @include tablet{
                 transform: rotateZ(0deg) translateY(-50%);
@@ -1054,5 +1056,33 @@ p {
         width: 100%;
         height: 100%;
         touch-action: pan-y;
+    }
+}
+
+.cursor{
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+    background-color: #1d38503d;
+    border-width: 0.5px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1000;
+    mix-blend-mode: normal;
+    pointer-events: none;
+
+    @include tablet {
+        display: none !important;
+    }
+
+    &_sm{
+        background-color: #42618624;
+        z-index: 999;
+    }
+
+    &-hover{
+        transform: scale(1.4);
+        // mix-blend-mode: difference;
     }
 }

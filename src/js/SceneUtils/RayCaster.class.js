@@ -2,12 +2,14 @@ import {
     Raycaster,
     Vector2,
 } from 'three';
+import { clickCursor, scaleCursor } from '../lib/utils';
 
 export default class RayCaster
 {
     constructor(_story)
     {
         this.story = _story;
+        this.container = document.querySelector('#canvas-container-skills');
         this.scene = this.story.scene;
         this.resources = this.story.resources;
         this.camera = this.story.camera;
@@ -25,8 +27,7 @@ export default class RayCaster
         this.touchedPoints = [];
 
         window.addEventListener('pointerdown', (event) => {
-            const container = document.querySelector('#canvas-container-skills');
-            const rect = container.getBoundingClientRect();
+            const rect = this.container.getBoundingClientRect();
             this.touchedPoints.push(event.pointerId);
 
             this.cursorXMin = Math.abs(((event.clientX - rect.left)/ this.sizes.width * 2 - 1) * 0.9);
@@ -39,8 +40,7 @@ export default class RayCaster
 
         // Click listener
         window.addEventListener('pointerup', (event) => {
-            const c = document.querySelector('#canvas-container-skills');
-            const rect = c.getBoundingClientRect();
+            const rect = this.container.getBoundingClientRect();
             this.cursor.x = (event.clientX - rect.left) / this.sizes.width * 2 - 1;
             this.cursor.y = -((event.clientY - rect.top) / this.sizes.height) * 2 + 1;
 
@@ -56,8 +56,23 @@ export default class RayCaster
             }
         });
 
+        this.container.addEventListener('pointermove', (event) => {
+            const rect = this.container.getBoundingClientRect();
+            this.cursor.x = (event.clientX - rect.left) / this.sizes.width * 2 - 1;
+            this.cursor.y = -((event.clientY - rect.top) / this.sizes.height) * 2 + 1;
+            this.raycaster.setFromCamera(this.cursor, this.camera.instance);
+            if(this.raycaster && this.objectsToTest){
+                const intersects = this.raycaster.intersectObjects(this.objectsToTest);
+                if (intersects.length > 0) {
+                    scaleCursor(true);
+                } else {
+                    scaleCursor(false);
+                }
+            }
+        });
+
         this.story.controller.hide(7);
-        this.objectsToTest[7].material.color.set(0xc8e3bf);
+        this.objectsToTest[7].material.color.set(0x426186);
 
     }
     click(cursor)
@@ -72,7 +87,8 @@ export default class RayCaster
         this.intersectsObjects = this.raycaster.intersectObjects(this.objectsToTest);
         if (this.intersectsObjects.length) {
             this.selectedModel = this.intersectsObjects[0].object;
-            this.selectedModel.material.color.set(0xc8e3bf);
+            this.selectedModel.material.color.set(0x426186);
+            clickCursor();
 
             switch (this.selectedModel) {
                 case this.objectsToTest[0]:

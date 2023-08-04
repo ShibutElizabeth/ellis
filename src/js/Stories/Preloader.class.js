@@ -46,10 +46,11 @@ export class Preloader extends Story{
 
     setMaterials()
     {
-        this.setMeshesMaterials([this.model], new MeshPhysicalMaterial({color: new Color('#ff33bb')}));
+        this.setMeshesMaterials([this.model], new MeshPhysicalMaterial({color: new Color('#ffffff')}));
         const clip = this.clips[0];
         const action = this.mixer.clipAction(clip);
         action.play();
+        action.paused = true;
         this.scene.add(this.model);
     }
 
@@ -57,7 +58,6 @@ export class Preloader extends Story{
         objects.forEach((object) => {
             if(object.material){
                 object.material = material;
-                console.log(object)
             }
             if(object.children){
                 this.setMeshesMaterials(object.children, material);
