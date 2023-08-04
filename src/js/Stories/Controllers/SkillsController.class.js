@@ -137,8 +137,8 @@ export default class SkillsController
             opacity: 1,
             scrollTrigger: {
                 trigger: this.container,
-                start: this.isMobile ? 'top 20%' :'top 50%',
-                end: this.isMobile ? 'top top' :'top 30%',
+                start: 'top 50%',
+                end: 'top 30%',
                 scrub: 1
             }
         });

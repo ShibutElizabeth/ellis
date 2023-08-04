@@ -29,8 +29,8 @@ export default class Renderer
         this.instance.outputEncoding = sRGBEncoding;
         this.instance.shadowMap.enabled = true
         this.instance.shadowMap.type = PCFSoftShadowMap; 
-        this.story.canvas = this.instance.domElement = this.canvas; 
-        
+        this.story.canvas = this.instance.domElement = this.canvas;
+        this.canvas.style.touchAction = 'pan-y';
     }
 
     resize()

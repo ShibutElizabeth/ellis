@@ -22,7 +22,7 @@ export default class RayCaster
         this.cursorDown = new Vector2();
         this.cursor = new Vector2();
 
-        this.touchedPoints = []
+        this.touchedPoints = [];
 
         window.addEventListener('pointerdown', (event) => {
             const container = document.querySelector('#canvas-container-skills');
