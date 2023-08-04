@@ -137,8 +137,8 @@ export default class SkillsController
             opacity: 1,
             scrollTrigger: {
                 trigger: this.container,
-                start: 'top 50%',
-                end: 'top 30%',
+                start: this.isMobile ? 'top 20%' :'top 50%',
+                end: this.isMobile ? 'top top' :'top 30%',
                 scrub: 1
             }
         });
@@ -252,7 +252,7 @@ export default class SkillsController
         delay: 0.1,
     })
     .to(this.skillName, {
-        transform: 'translateY(102%)',
+        transform: 'translateY(110%)',
         duration: 0.3,
         delay: 0.1,
         ease: 'power1.easeOut',
@@ -275,7 +275,7 @@ export default class SkillsController
         const tl = gsap.timeline();
         tl
         .fromTo(header, {
-            transform: 'translateX(-102%)',
+            transform: 'translateX(-110%)',
         }, {
             transform: 'translateX(0%)',
             duration: 0.6,
