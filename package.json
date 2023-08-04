@@ -1,5 +1,5 @@
 {
-  "name": "ellis",
+  "name": "shibutelizabeth",
   "source": "src/index.html",
   "scripts": {
     "clean-dist": "rm -rf dist && mkdir dist",
@@ -18,10 +18,9 @@
   },
   "dependencies": {
     "cannon-es": "^0.20.0",
-    "gsap": "^3.12.2",
+    "gsap": "^3.10.3",
     "lil-gui": "^0.16.1",
     "locomotive-scroll": "^4.1.4",
-    "netlify-cli": "^15.9.1",
     "three": "^0.139.2"
   },
   "staticFiles": {
