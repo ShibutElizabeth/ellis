@@ -25,7 +25,7 @@ export class Hero{
     initFirstTimeline(){
         const firstTl = gsap.timeline();
         firstTl.fromTo(this.names, {
-            transform: 'translateY(102%)',
+            transform: 'translateY(110%)',
         }, {
             transform: 'translateY(0%)',
             duration: 0.6,

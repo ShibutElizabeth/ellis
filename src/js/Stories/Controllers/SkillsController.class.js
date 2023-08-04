@@ -214,7 +214,7 @@ export default class SkillsController
     show = () => 
     gsap.timeline()
     .fromTo(this.skillName, {
-        transform: 'translateY(102%)',
+        transform: 'translateY(110%)',
     }, {
         transform: 'translateY(0%)',
         duration: 0.3,

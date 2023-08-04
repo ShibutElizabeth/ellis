@@ -199,11 +199,11 @@ export class About{
                 toggleActions: 'play none none none',
             }
         }).to(this.text, {
-            delay: 0.6,
+            delay: 0.5,
             onStart: () => showDescription(),
             scrollTrigger: {
                 trigger: this.text,
-                start: 'top 90%',
+                start: 'top 70%',
             }
         });
     }

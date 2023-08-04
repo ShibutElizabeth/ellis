@@ -64,7 +64,7 @@ export class Contact{
 
         const links = () => {
             gsap.fromTo(this.linksInside, {
-                transform: 'translateY(102%)',
+                transform: 'translateY(110%)',
             }, {
                 transform: 'translateY(0%)',
                 stagger: 0.4,
@@ -88,7 +88,7 @@ export class Contact{
         .to(document.body, {
             scrollTrigger: {
                 trigger: this.section,
-                start: 'top 30%',
+                start: this.isMobile ? 'top 40%' :'top 30%',
                 scrub: 1,
                 onEnter: links,
             }

@@ -5,10 +5,12 @@ import {
     Mesh
 } from 'three';
 import { Story } from './Story.class';
+import { isMobileDevice } from '../lib/utils';
 
 export class ContactSphere extends Story{
     constructor(){
         super('contact');
+        this.isMobile = isMobileDevice();
         this.container = document.querySelector('#canvas-container-contact');
         const { width } = this.container.getBoundingClientRect();
         this.renderer.instance.alpha = true;
@@ -46,9 +48,9 @@ export class ContactSphere extends Story{
 
         this.scene.add(this.mesh2);
         this.scene.add(this.mesh);
-        
-        window.addEventListener("mousemove", this.onMouseMove.bind(this));
-        window.addEventListener("touchmove", this.onMouseMove.bind(this));
+        if(!this.isMobile){
+            window.addEventListener("mousemove", this.onMouseMove.bind(this));
+        }
     }
 
     update(){
