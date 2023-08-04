@@ -26,17 +26,17 @@ export default class Camera
             this.instance = new OrthographicCamera(-10, 10, 10,  -10, - 10, 10);   
         } else{
             this.instance = new PerspectiveCamera(45, this.sizes.width / this.sizes.height, 0.4, 1000);
-            if(this.isMobile){
-                this.instance.position.x = 2;
-                this.instance.position.y = 10;
-                this.instance.position.z = 15;
-                this.instance.lookAt(0, -2, 1);
-            } else {
-                this.instance.position.x = 6;
-                this.instance.position.y = 6;
-                this.instance.position.z = 15;
-                this.instance.lookAt(-5, 1, 1);
-            }
+            // if(this.isMobile){
+            //     this.instance.position.x = 2;
+            //     this.instance.position.y = 10;
+            //     this.instance.position.z = 15;
+            //     this.instance.lookAt(0, -2, 1);
+            // } else {
+            //     this.instance.position.x = 6;
+            //     this.instance.position.y = 6;
+            //     this.instance.position.z = 15;
+            //     this.instance.lookAt(-5, 1, 1);
+            // }
             
         }
         this.scene.add(this.instance);
@@ -52,13 +52,13 @@ export default class Camera
             this.controls.target.set(-5, 1, 1);
         }
         
-        this.controls.enableRotate = false;
-        this.controls.enablePan = false;
-        this.controls.enableZoom = false;
+        // this.controls.enableRotate = false;
+        // this.controls.enablePan = false;
+        // this.controls.enableZoom = false;
         // this.controls.enabled = false;
-        // this.controls.addEventListener('change', () => {
-        //     console.log(this.controls);
-        // })
+        this.controls.addEventListener('change', () => {
+            console.log(this.controls);
+        })
     }
 
     
