@@ -3,11 +3,13 @@ import {
     sRGBEncoding,
     PCFSoftShadowMap
 } from 'three';
+import { isMobileDevice } from '../lib/utils';
 
 export default class Renderer
 {
     constructor(_story)
     {
+        this.isMobile = isMobileDevice();
         this.story = _story;
         this.sizes = this.story.sizes;
         this.scene = this.story.scene;
@@ -25,7 +27,8 @@ export default class Renderer
         });
 
         this.instance.setSize(this.canvas.width, this.canvas.height);
-        this.instance.setPixelRatio(Math.min(this.sizes.width / this.sizes.height, 2));
+        if(this.isMobile) this.instance.setPixelRatio(window.devicePixelRatio);
+        else this.instance.setPixelRatio(Math.min(this.sizes.width / this.sizes.height, 2));
         this.instance.outputEncoding = sRGBEncoding;
         this.instance.shadowMap.enabled = true
         this.instance.shadowMap.type = PCFSoftShadowMap; 
@@ -36,7 +39,8 @@ export default class Renderer
     resize()
     {
         this.instance.setSize(this.sizes.width, this.sizes.height);
-        this.instance.setPixelRatio(Math.min(this.sizes.width / this.sizes.height, 2));
+        if(this.isMobile) this.instance.setPixelRatio(window.devicePixelRatio);
+        else this.instance.setPixelRatio(Math.min(this.sizes.width / this.sizes.height, 2));
     }
 
 }
