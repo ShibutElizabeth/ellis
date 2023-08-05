@@ -136,9 +136,9 @@ export default class SkillsController
         }, {
             opacity: 1,
             scrollTrigger: {
-                trigger: this.container,
+                trigger: element,
                 start: 'top 50%',
-                end: 'top 30%',
+                end: this.isMobile ? 'top 40%' :'top 30%',
                 scrub: 1
             }
         });
