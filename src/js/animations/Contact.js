@@ -78,13 +78,13 @@ export class Contact{
                 onEnterBack: white,
                 onLeaveBack: black
             }
-        })
-        .to(document.body, {
+        });
+        gsap.to(document.body, {
+            onStart: links,
             scrollTrigger: {
                 trigger: this.section,
                 start: this.isMobile ? 'top 40%' :'top 30%',
-                scrub: 1,
-                onEnter: links,
+                once: true,
             }
         });
     } 

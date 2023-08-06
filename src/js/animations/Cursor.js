@@ -12,7 +12,6 @@ export class Cursor{
             x: e.clientX - 25,
             y: e.clientY - 25,
             duration: 0.2,
-            // ease: 'power1.easeOut',
         });
         gsap.to(this.sm, {
             x: e.clientX - 25,
@@ -20,7 +19,6 @@ export class Cursor{
             delay: 0.03,
             duration: 0.2,
             stagger: 0.03,
-            // ease: 'power1.easeOut',
         })
     }
 }

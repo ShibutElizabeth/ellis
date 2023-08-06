@@ -23,8 +23,8 @@ export class Hero{
     }
 
     initFirstTimeline(){
-        const firstTl = gsap.timeline();
-        firstTl.fromTo(this.names, {
+        const firstTL = gsap.timeline();
+        firstTL.fromTo(this.names, {
             transform: 'translateY(110%)',
         }, {
             transform: 'translateY(0%)',
@@ -76,9 +76,6 @@ export class Hero{
         });
     }
 
-    removeMaskHover() {
-        window.removeEventListener('mousemove', this.maskMouseMove);
-    }
 
     initMaskTransition(){
         let sizes = {
@@ -95,6 +92,7 @@ export class Hero{
                 top: '25vh',
             }
         }
+        
         const sceneTL = gsap.timeline();
         sceneTL
         .fromTo(this.heroMask, {
@@ -111,7 +109,7 @@ export class Hero{
                 trigger: this.container,
                 start: 'top 90%',
                 end: 'top 30%',
-                scrub: 1
+                scrub: 1,
             }
         })
         .to(this.mouseScroll, {

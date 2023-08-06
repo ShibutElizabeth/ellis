@@ -22,6 +22,7 @@ export class Projects{
                     trigger: card,
                     start: 'top 70%',
                     scrub: 1,
+                    invalidateOnRefresh: true,
                 }
             })
         })

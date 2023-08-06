@@ -117,13 +117,13 @@ export default class SkillsController
             y: 0,
             x: 0,
         }, {
-            x: this.isMobile ? '0' : '-5vw',
-            y: this.isMobile ? '75vh' :'70vh',
+            x: 0 ,// this.isMobile ? '0' : '-5vw',
+            y: this.isMobile ? '70vh' :'70vh',
             scrollTrigger: {
                 trigger: this.container,
                 start: 'top 90%',
                 end: 'top 50%',
-                scrub: 1
+                scrub: 1,
             }
         });
     }
@@ -139,43 +139,43 @@ export default class SkillsController
                 trigger: element,
                 start: 'top 50%',
                 end: this.isMobile ? 'top 40%' :'top 30%',
-                scrub: 1
+                scrub: 1,
             }
         });
     }
 
     cameraTransition(){
         let position = {
-            x: 5, 
-            y: 4,
+            x: 0, 
+            y: 5,
             z: 12,
-            x2: 8.4,
-            y2: 6,
-            z2: 0.7
+            x2: 5,
+            y2: 10,
+            z2: 1
         };
         let controlsPos = {
-            x: -5,
-            y: 0.5,
-            z: 0,
-            x2: -1.15,
-            y2: -1.25,
-            z2: 0.18
+            x: 1,
+            y: 2,
+            z: 2,
+            x2: -2,
+            y2: -6,
+            z2: 0
         }
         if(this.isMobile){
             position = {
                 x: 0, 
                 y: 5,
-                z: 10,
+                z: 12,
                 x2: 5,
-                y2: 12,
+                y2: 15,
                 z2: 1
             };
             controlsPos = {
                 x: 1,
                 y: 1,
-                z: 1,
+                z: 2,
                 x2: -2,
-                y2: -3,
+                y2: -6,
                 z2: 0
             }
         };
@@ -193,7 +193,7 @@ export default class SkillsController
                 trigger: this.container,
                 start: 'top 90%',
                 end: 'top 30%',
-                scrub: 1
+                scrub: 1,
             }
         })
         .fromTo(this.camera.controls.target, {
@@ -284,7 +284,7 @@ export default class SkillsController
                 trigger: this.container,
                 start: 'top 60%',
                 end: 'top 30%',
-                scrub: 1
+                scrub: 1,
             }
         })
         .fromTo(mark, {
@@ -298,18 +298,11 @@ export default class SkillsController
                 trigger: this.container,
                 start: 'top 40%',
                 end: 'top 30%',
-                scrub: 1
+                scrub: 1,
             }
         });
     }
-
-    resize(){
-        this.isMobile = isMobileDevice();
-        if(this.isMobile){
-            ScrollTrigger.refresh();
-        }
-    }
-
+    
     sleep(ms) 
     {
         return new Promise(resolve => setTimeout(resolve, ms));
