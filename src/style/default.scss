@@ -595,8 +595,8 @@ p {
     @include tablet {
         height: 225vh;
     }
-    @include phone{
-        height: 205vh;
+    @include phone {
+        height: 230vh;
     }
 
     &__gallery {
@@ -684,6 +684,10 @@ p {
             @include phone {
                 width: 75vw;
                 height: 46vh;
+                &:nth-child(1) {
+                    top: 0;
+                    left: 9vw;
+                }
                 &:nth-child(2) {
                     top: 45vh;
                     left: 19vw;
