@@ -152,7 +152,7 @@ p {
 
 
     .name {
-        transform: translateY(110%);
+        transform: translateY(150%);
         line-height: 0.8;
     }
 }
@@ -175,7 +175,7 @@ p {
 
     .name {
         line-height: 0.8;
-        transform: translateX(-110%);
+        transform: translateX(-150%);
     }
 }
 
@@ -283,7 +283,7 @@ p {
         }
 
         h1 {
-            font-size: 19.4vh;
+            font-size: 12vw;
             margin: 0;
             padding: 0;
             @include desktop-m{

@@ -13,7 +13,7 @@ import { Materials } from './Materials.class';
 import RayCaster from '../SceneUtils/RayCaster.class';
 import SkillsController from './Controllers/SkillsController.class';
 
-export class Skills extends Story{
+export class Skills extends Story {
     constructor(){
         super('skills');
         this.renderer.instance.setClearColor(0xf0712c, 0);

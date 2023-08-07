@@ -58,7 +58,7 @@ export class Contact{
 
         const links = () => {
             gsap.fromTo(this.linksInside, {
-                transform: 'translateY(110%)',
+                transform: 'translateY(150%)',
             }, {
                 transform: 'translateY(0%)',
                 stagger: 0.4,

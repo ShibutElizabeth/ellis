@@ -30,7 +30,7 @@ export default class SkillsController
                 name: 'GSAP', 
                 experience: '3+ years', 
                 descr: `I believe it's my favorite skill, because GSAP is a powerful tool for creating smooth, visually appealing and interactive user experiences.
-                I'm really good at easing and timelines, transformations and transitions, scroll, SVG, path, motion and staggered animations (I'm craving to become a Club GSAP member). 
+                I'm really good at easing and timelines, transformations and transitions, scroll, SVG, path, motion and staggered animations. 
                 I'm able to develop trigger animations based on user interactions such as clicks, hovers or other custom events.
                 I integrate GSAP seamlessly with front-end frameworks like React, Vue.js, adapt animations to different screen sizes and orientations for a consistent experience
                 and combine timelines and scroll-triggered effects to build complex interactive components.
@@ -45,7 +45,7 @@ export default class SkillsController
             { 
                 name: 'React', 
                 experience: '2 years', 
-                descr: `I have a strong grasp of React and know how to build efficient, scalable, and interactive user interfaces. 
+                descr: `I have a strong grasp of React and know how to build efficient, scalable and interactive user interfaces. 
                 I'm proficient in components creation and their reusability, props and state, component lifecycle, hooks, 
                 event handling, conditional rendering, lists, forms, routing and navigation, context API, HTTP requests and data fetching,
                 styling and CSS-in-JS. Also I have a good understanding of server-side rendering (worked with C# backend).`
@@ -53,7 +53,8 @@ export default class SkillsController
             { 
                 name: 'CSS', 
                 experience: '4+ years', 
-                descr: `I have a deep and comprehensive understanding of CSS and create visually appealing, responsive and well-structured web interfaces that work consistently across different browsers. 
+                descr: `I have a deep and comprehensive understanding of CSS and create visually appealing, responsive and well-structured web interfaces
+                that work consistently across different browsers. 
                 I know how to develop a modular and scalable CSS architecture for large projects.
                 I'm familiar with CSS methodologies, preprocessors, styling and effects, CSS-in-JS and styling libraries.`
             }, 
@@ -117,7 +118,7 @@ export default class SkillsController
             y: 0,
             x: 0,
         }, {
-            x: 0 ,// this.isMobile ? '0' : '-5vw',
+            x: 0,
             y: this.isMobile ? '70vh' :'70vh',
             scrollTrigger: {
                 trigger: this.container,
@@ -216,7 +217,7 @@ export default class SkillsController
     show = () => 
     gsap.timeline()
     .fromTo(this.skillName, {
-        transform: 'translateY(110%)',
+        transform: 'translateY(150%)',
     }, {
         transform: 'translateY(0%)',
         duration: 0.3,
@@ -252,7 +253,7 @@ export default class SkillsController
         delay: 0.1,
     })
     .to(this.skillName, {
-        transform: 'translateY(110%)',
+        transform: 'translateY(150%)',
         duration: 0.3,
         delay: 0.1,
         ease: 'power1.easeOut',
@@ -275,7 +276,7 @@ export default class SkillsController
         const tl = gsap.timeline();
         tl
         .fromTo(header, {
-            transform: 'translateX(-110%)',
+            transform: 'translateX(-150%)',
         }, {
             transform: 'translateX(0%)',
             duration: 0.6,
@@ -302,7 +303,7 @@ export default class SkillsController
             }
         });
     }
-    
+
     sleep(ms) 
     {
         return new Promise(resolve => setTimeout(resolve, ms));
