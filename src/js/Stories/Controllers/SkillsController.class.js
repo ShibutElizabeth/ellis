@@ -37,14 +37,14 @@ export default class SkillsController
                 `}, 
             { 
                 name: 'Typescript', 
-                experience: '3+ years',
+                experience: '4+ years',
                 descr: `I have a strong proficiency in TypeScript, since I worked on React.ts and Angular.ts projects. 
                 I know basic syntax and types, interfaces, type declarations and annotations, OOP concepts, enums, type guards and assertions. I understand concepts of namespaces and their usage.
                 I'm experienced with error handling, JavaScript to TypeScript migration, linting and tooling.`
             }, 
             { 
                 name: 'React', 
-                experience: '2 years', 
+                experience: '3 years', 
                 descr: `I have a strong grasp of React and know how to build efficient, scalable and interactive user interfaces. 
                 I'm proficient in components creation and their reusability, props and state, component lifecycle, hooks, 
                 event handling, conditional rendering, lists, forms, routing and navigation, context API, HTTP requests and data fetching,
