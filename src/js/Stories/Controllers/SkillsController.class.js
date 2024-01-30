@@ -28,7 +28,7 @@ export default class SkillsController
         this.skillsDescriptions = [
             { 
                 name: 'GSAP', 
-                experience: '3+ years', 
+                experience: '4+ years', 
                 descr: `I believe it's my favorite skill, because GSAP is a powerful tool for creating smooth, visually appealing and interactive user experiences.
                 I'm really good at easing and timelines, transformations and transitions, scroll, SVG, path, motion and staggered animations. 
                 I'm able to develop trigger animations based on user interactions such as clicks, hovers or other custom events.
@@ -37,14 +37,14 @@ export default class SkillsController
                 `}, 
             { 
                 name: 'Typescript', 
-                experience: '4+ years',
+                experience: '5+ years',
                 descr: `I have a strong proficiency in TypeScript, since I worked on React.ts and Angular.ts projects. 
                 I know basic syntax and types, interfaces, type declarations and annotations, OOP concepts, enums, type guards and assertions. I understand concepts of namespaces and their usage.
                 I'm experienced with error handling, JavaScript to TypeScript migration, linting and tooling.`
             }, 
             { 
                 name: 'React', 
-                experience: '3 years', 
+                experience: '5 years', 
                 descr: `I have a strong grasp of React and know how to build efficient, scalable and interactive user interfaces. 
                 I'm proficient in components creation and their reusability, props and state, component lifecycle, hooks, 
                 event handling, conditional rendering, lists, forms, routing and navigation, context API, HTTP requests and data fetching,
@@ -52,7 +52,7 @@ export default class SkillsController
             }, 
             { 
                 name: 'CSS', 
-                experience: '4+ years', 
+                experience: '5+ years', 
                 descr: `I have a deep and comprehensive understanding of CSS and create visually appealing, responsive and well-structured web interfaces
                 that work consistently across different browsers. 
                 I know how to develop a modular and scalable CSS architecture for large projects.
@@ -60,7 +60,7 @@ export default class SkillsController
             }, 
             { 
                 name: 'Soft skills', 
-                experience: '22+ years', 
+                experience: '23+ years', 
                 descr: `I'm attentive and responsive when others are speaking, ensuring a thorough understanding of requirements and concerns in both work and private life. 
                 I have the ability to articulate ideas, ask questions and explain technical concepts clearly to team members, stakeholders and non-technical individuals.
                 I'm capable to analyze complex problems, identify root causes and devise innovative solutions 
@@ -72,7 +72,7 @@ export default class SkillsController
             }, 
             { 
                 name: 'Git', 
-                experience: '5 years', 
+                experience: '5+ years', 
                 descr: `I understand the fundamental concepts of version control, including repositories, commits, branches and merges.
                 I'm familiar with repository setup, collaboration with other developers by resolving merge conflicts.
                 I know how to do cherry-pick commits from one branch and apply them to another and undo changes.
@@ -80,7 +80,7 @@ export default class SkillsController
             }, 
             { 
                 name: 'Javascript', 
-                experience: '4+ years', 
+                experience: '5+ years', 
                 descr: 
                     `I'm familiar with core JavaScript concepts, OOP, asynchronous programming, ES6+ features, functional programming, DOM manipulation, cross-browser compatibility. 
                     I work with APIs (browser, axios). I'm one of the best error handlers and debuggers :) Had experience with performance optimization, tooling and build processes. 
@@ -96,7 +96,7 @@ export default class SkillsController
             }, 
             { 
                 name: 'Vue.js', 
-                experience: '1 year', 
+                experience: '3 years', 
                 descr: 
                 `I was working on two projects with Vue.js framework. My contribution was mostly about transitions and animations, 
                 but during the process I also learnt Vue.js instance, templates and directives, computed properties and watchers, routing, state management,
